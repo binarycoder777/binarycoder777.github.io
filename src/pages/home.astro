@@ -1,3 +1,7 @@
+---
+import HiddenSearch from '../components/HiddenSearch.astro'
+---
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,21 +9,22 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>vCard - Personal Portfolio</title>
+  <title>BinaryCoder777</title>
 
   <!--
     - favicon
   -->
-  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/images/logo.ico" type="image/x-icon">
 
   <!--
     - custom css link
   -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
 
   <!--
     - google font link
   -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-dREcN7NO8DOFB9Wv5BLt3ZXmObAzJbYTBmjvTnI+DLgNUOf9MP+J6ST1KHy2aMJa" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -40,6 +45,7 @@
     <aside class="sidebar" data-sidebar>
 
       <div class="sidebar-info">
+        <!-- 个人信息 -->
         <figure class="avatar-box">
           <img src="/my-logo.png" alt="Richard hanrick" width="80" id="rotateImage">
         </figure>
@@ -47,104 +53,88 @@
         <div class="info-content">
           <h1 class="name" title="Richard hanrick">BinaryCoder777</h1>
 
-          <p class="title">Software developer</p>
+          <p class="title">Software Developer</p>
         </div>
 
         <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
+          <span>更多...</span>
 
           <ion-icon name="chevron-down"></ion-icon>
         </button>
-
-      </div>
-
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">我的文章</p>
-
-              <a href="mailto:richard@example.com" class="contact-link">richard@example.com</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Phone</p>
-
-              <a href="tel:+12133522795" class="contact-link">+1 (213) 352-2795</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Birthday</p>
-
-              <time datetime="1982-06-23">June 23, 1982</time>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-
-              <address>Sacramento, California, USA</address>
-            </div>
-
-          </li>
-
-        </ul>
-
-        <div class="separator"></div>
-
+        <!-- 社交连接 -->
         <ul class="social-list">
 
           <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-facebook"></ion-icon>
+            <a href="https://github.com/BinaryCoder777" class="social-link">
+              <div class="icon-container">
+                <ion-icon name="logo-github"></ion-icon>
+                <div class="icon-tooltip">Github</div>
+              </div>
             </a>
           </li>
 
           <li class="social-item">
             <a href="#" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
+              <div class="icon-container">
+                <ion-icon name="mail-outline"></ion-icon>
+                <div class="icon-tooltip">发送邮件</div>
+              </div>
             </a>
           </li>
 
           <li class="social-item">
             <a href="#" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
+              <div class="icon-container">
+                <ion-icon name="logo-wechat"></ion-icon> 
+                <div class="icon-tooltip">
+                  <img src="/vx/vx.pic.jpg" alt="Image Tooltip">
+                </div>
+              </div>           
             </a>
           </li>
 
         </ul>
+
+      </div>
+
+      <div class="separator"></div>
+
+
+      <div class="sidebar-info_more">
+
+        <ul class="contacts-list">
+            <ul class="archive">
+              <li>
+                <span class="archive-month">2022年1月</span>
+                <ul class="archive-list">
+                  <li class="archive-item"><a href="#">为客户提供专业领域的解决方案11111111111                </a></li>
+                  <li class="archive-item"><a href="#">从生活中发现一些很酷的想法并实现它们                  </a></li>
+                </ul>
+              </li>
+              <li>
+                <span class="archive-month">2021年12月</span>
+                <ul class="archive-list">
+                  <li class="archive-item"><a href="#">进行高质量的软件开发与交付</a></li>
+                  <li class="archive-item">
+                    <a href="#">向前人学习，不断积累行业领域经验</a>
+                  </li>
+                </ul>
+              </li>
+              <!-- Add more months as needed -->
+            </ul>
+
+        </ul>
+
+
+        <div class="separator"></div>
+
+        <div class="footer-content">
+          <div class="copyright">
+            <a href="/privacy-policy" style="display: inline;">
+              &copy; 2024 BinaryCoder777. 保留所有权利。本站所有内容均受版权法保护，未经许可，禁止复制或转载。
+            </a>
+          </div>
+      </div>
 
       </div>
 
@@ -160,13 +150,6 @@
 
     <div class="main-content">
 
-
-       <!--
-      - #main-content
-    -->
-
-    <div class="main-content">
-
       <!--
         - #NAVBAR
       -->
@@ -176,23 +159,36 @@
         <ul class="navbar-list">
 
           <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
+            <button class="navbar-link  active" data-nav-link>首页</button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
+            <button class="navbar-link" data-nav-link>个人足迹</button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Portfolio</button>
+            <button class="navbar-link" data-nav-link>日常随笔</button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Blog</button>
+            <button class="navbar-link" data-nav-link>项目开发</button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
+              <button class="navbar-link" data-nav-link>我的书库</button>
+          </li>
+
+          <li class="navbar-item">
+            <div class="dropdown">
+              <button class="navbar-link" data-nav-link>其他
+                <ion-icon class="chevron-down" name="chevron-down-outline"></ion-icon>
+              </button>
+              <div class="dropdown-content">
+                <button class="navbar-link" data-nav-link>每日一练</button>
+                <button class="navbar-link" data-nav-link>在线工具</button>
+                <button class="navbar-link" data-nav-link>我的收藏</button>
+              </div>
+            </div>
           </li>
 
         </ul>
@@ -204,7 +200,7 @@
         - #ABOUT
       -->
 
-      <article class="about  active" data-page="about">
+      <article class="about  active" data-page="首页">
 
         <header>
           <h2 class="h2 article-title">关于我:</h2>
@@ -299,7 +295,7 @@
                 <h4 class="h4 service-item-title">Record My life</h4>
 
                 <p class="service-item-text">
-                  向前人学习，不断积累经验
+                  向前人学习，不断积累行业领域经验
                 </p>
               </div>
 
@@ -522,7 +518,7 @@
         - #RESUME
       -->
 
-      <article class="resume" data-page="resume">
+      <article class="resume" data-page="个人足迹">
 
         <header>
           <h2 class="h2 article-title">Resume</h2>
@@ -712,10 +708,10 @@
 
 
       <!--
-        - #PORTFOLIO
+        - #Books
       -->
 
-      <article class="portfolio" data-page="portfolio">
+      <article class="portfolio" data-page="我的书库">
 
         <header>
           <h2 class="h2 article-title">Portfolio</h2>
@@ -787,7 +783,7 @@
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project-1.jpg" alt="finance" loading="lazy">
+                  <img src="/images/project-1.jpg" alt="finance" loading="lazy">
                 </figure>
 
                 <h3 class="project-title">Finance</h3>
@@ -805,7 +801,7 @@
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project-2.png" alt="orizon" loading="lazy">
+                  <img src="/images/project-2.png" alt="orizon" loading="lazy">
                 </figure>
 
                 <h3 class="project-title">Orizon</h3>
@@ -823,7 +819,7 @@
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project-3.jpg" alt="fundo" loading="lazy">
+                  <img src="/images/project-3.jpg" alt="fundo" loading="lazy">
                 </figure>
 
                 <h3 class="project-title">Fundo</h3>
@@ -841,7 +837,7 @@
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project-4.png" alt="brawlhalla" loading="lazy">
+                  <img src="/images/project-4.png" alt="brawlhalla" loading="lazy">
                 </figure>
 
                 <h3 class="project-title">Brawlhalla</h3>
@@ -859,7 +855,7 @@
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project-5.png" alt="dsm." loading="lazy">
+                  <img src="/images/project-5.png" alt="dsm." loading="lazy">
                 </figure>
 
                 <h3 class="project-title">DSM.</h3>
@@ -877,7 +873,7 @@
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project-6.png" alt="metaspark" loading="lazy">
+                  <img src="/images/project-6.png" alt="metaspark" loading="lazy">
                 </figure>
 
                 <h3 class="project-title">MetaSpark</h3>
@@ -895,7 +891,7 @@
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project-7.png" alt="summary" loading="lazy">
+                  <img src="/images/project-7.png" alt="summary" loading="lazy">
                 </figure>
 
                 <h3 class="project-title">Summary</h3>
@@ -913,7 +909,7 @@
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project-8.jpg" alt="task manager" loading="lazy">
+                  <img src="/images/project-8.jpg" alt="task manager" loading="lazy">
                 </figure>
 
                 <h3 class="project-title">Task Manager</h3>
@@ -931,7 +927,7 @@
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project-9.png" alt="arrival" loading="lazy">
+                  <img src="/images/project-9.png" alt="arrival" loading="lazy">
                 </figure>
 
                 <h3 class="project-title">Arrival</h3>
@@ -955,10 +951,10 @@
         - #BLOG
       -->
 
-      <article class="blog" data-page="blog">
+      <article class="blog" data-page="日常随笔">
 
-        <header>
-          <h2 class="h2 article-title">Blog</h2>
+        <header class="hidden-search-header">
+          <HiddenSearch/>
         </header>
 
         <section class="blog-posts">
@@ -966,10 +962,10 @@
           <ul class="blog-posts-list">
 
             <li class="blog-post-item">
-              <a href="#">
+              <a href="/posts/post-1">
 
                 <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy">
+                  <img src="/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy">
                 </figure>
 
                 <div class="blog-content">
@@ -997,7 +993,7 @@
               <a href="#">
 
                 <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-2.jpg" alt="Best fonts every designer" loading="lazy">
+                  <img src="/images/blog-2.jpg" alt="Best fonts every designer" loading="lazy">
                 </figure>
 
                 <div class="blog-content">
@@ -1025,7 +1021,7 @@
               <a href="#">
 
                 <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-3.jpg" alt="Design digest #80" loading="lazy">
+                  <img src="/images/blog-3.jpg" alt="Design digest #80" loading="lazy">
                 </figure>
 
                 <div class="blog-content">
@@ -1053,7 +1049,7 @@
               <a href="#">
 
                 <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-4.jpg" alt="UI interactions of the week" loading="lazy">
+                  <img src="/images/blog-4.jpg" alt="UI interactions of the week" loading="lazy">
                 </figure>
 
                 <div class="blog-content">
@@ -1081,7 +1077,7 @@
               <a href="#">
 
                 <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-5.jpg" alt="The forgotten art of spacing" loading="lazy">
+                  <img src="/images/blog-5.jpg" alt="The forgotten art of spacing" loading="lazy">
                 </figure>
 
                 <div class="blog-content">
@@ -1109,7 +1105,7 @@
               <a href="#">
 
                 <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-6.jpg" alt="Design digest #79" loading="lazy">
+                  <img src="/images/blog-6.jpg" alt="Design digest #79" loading="lazy">
                 </figure>
 
                 <div class="blog-content">
@@ -1147,7 +1143,7 @@
         - #CONTACT
       -->
 
-      <article class="contact" data-page="contact">
+      <article class="contact" data-page="其他">
 
         <header>
           <h2 class="h2 article-title">Contact</h2>
@@ -1212,6 +1208,37 @@
 
 
 <script>
+
+      // Add event listeners to toggle archive list visibility
+      const archiveMonths = document.querySelectorAll('.archive-month');
+
+archiveMonths.forEach(month => {
+  month.addEventListener('click', () => {
+    const archiveList = month.nextElementSibling;
+    archiveList.style.display = archiveList.style.display === 'none' ? 'block' : 'none';
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const archiveItems = document.querySelectorAll('.archive-item');
+
+  archiveItems.forEach(item => {
+    const month = item.querySelector('.archive-month');
+    const arrow = item.querySelector('.arrow');
+    const archiveList = item.querySelector('.archive-list');
+
+    month.addEventListener('click', function () {
+      item.classList.toggle('opened');
+      arrow.style.transform = item.classList.contains('opened') ? 'rotate(90deg)' : 'rotate(0deg)';
+    });
+  });
+});
+
+
+
+
+'use strict';
+
   const image = document.getElementById("rotateImage");
 
   image.addEventListener("mouseover", () => {
@@ -1221,7 +1248,147 @@
   image.addEventListener("mouseout", () => {
     image.classList.remove("rotate");
   });
+
+
+
+// element toggle function
+const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
+
+
+
+// sidebar variables
+const sidebar = document.querySelector("[data-sidebar]");
+const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+
+// sidebar toggle functionality for mobile
+sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
+
+
+
+// testimonials variables
+const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
+const modalContainer = document.querySelector("[data-modal-container]");
+const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
+const overlay = document.querySelector("[data-overlay]");
+
+// modal variable
+const modalImg = document.querySelector("[data-modal-img]");
+const modalTitle = document.querySelector("[data-modal-title]");
+const modalText = document.querySelector("[data-modal-text]");
+
+// modal toggle function
+const testimonialsModalFunc = function () {
+  modalContainer.classList.toggle("active");
+  overlay.classList.toggle("active");
+}
+
+// add click event to all modal items
+for (let i = 0; i < testimonialsItem.length; i++) {
+
+  testimonialsItem[i].addEventListener("click", function () {
+
+    modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
+    modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
+    modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
+    modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
+
+    testimonialsModalFunc();
+
+  });
+
+}
+
+// add click event to modal close button
+modalCloseBtn.addEventListener("click", testimonialsModalFunc);
+overlay.addEventListener("click", testimonialsModalFunc);
+
+
+
+// custom select variables
+const select = document.querySelector("[data-select]");
+const selectItems = document.querySelectorAll("[data-select-item]");
+const selectValue = document.querySelector("[data-selecct-value]");
+const filterBtn = document.querySelectorAll("[data-filter-btn]");
+
+select.addEventListener("click", function () { elementToggleFunc(this); });
+
+// add event in all select items
+for (let i = 0; i < selectItems.length; i++) {
+  selectItems[i].addEventListener("click", function () {
+
+    let selectedValue = this.innerText.toLowerCase();
+    selectValue.innerText = this.innerText;
+    elementToggleFunc(select);
+    filterFunc(selectedValue);
+
+  });
+}
+
+// filter variables
+const filterItems = document.querySelectorAll("[data-filter-item]");
+
+const filterFunc = function (selectedValue) {
+
+  for (let i = 0; i < filterItems.length; i++) {
+
+    if (selectedValue === "all") {
+      filterItems[i].classList.add("active");
+    } else if (selectedValue === filterItems[i].dataset.category) {
+      filterItems[i].classList.add("active");
+    } else {
+      filterItems[i].classList.remove("active");
+    }
+
+  }
+
+}
+
+// add event in all filter button items for large screen
+let lastClickedBtn = filterBtn[0];
+
+for (let i = 0; i < filterBtn.length; i++) {
+
+  filterBtn[i].addEventListener("click", function () {
+
+    let selectedValue = this.innerText.toLowerCase();
+    selectValue.innerText = this.innerText;
+    filterFunc(selectedValue);
+
+    lastClickedBtn.classList.remove("active");
+    this.classList.add("active");
+    lastClickedBtn = this;
+
+  });
+
+}
+
+
+
+// contact form variables
+const form = document.querySelector("[data-form]");
+const formInputs = document.querySelectorAll("[data-form-input]");
+const formBtn = document.querySelector("[data-form-btn]");
+
+// add event to all form input field
+for (let i = 0; i < formInputs.length; i++) {
+  formInputs[i].addEventListener("input", function () {
+
+    // check form validation
+    if (form.checkValidity()) {
+      formBtn.removeAttribute("disabled");
+    } else {
+      formBtn.setAttribute("disabled", "");
+    }
+
+  });
+}
+
+
 </script>
+
+
+
+
      
     
 <style>
@@ -1560,7 +1727,7 @@ gap: 15px;
 
 .avatar-box {
 background: var(--bg-gradient-onyx);
-border-radius: 20px;
+border-radius: 50%;
 }
 
 .info-content .name {
@@ -1671,11 +1838,68 @@ font-size: 18px;
 }
 
 
+
 .social-item .social-link:hover { color: var(--light-gray); }
 
 
+.social-link ion-icon {
+    position: relative;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  .social-link ion-icon:hover {
+    transform: scale(1.5); /* 鼠标悬停时放大到 1.2 倍 */
+  }
+
+  .icon-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    ion-icon {
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .icon-container:hover ion-icon {
+      transform: scale(1.2);
+    }
+
+    .icon-tooltip {
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #333;
+      color: #fff;
+      padding: 5px;
+      border-radius: 5px;
+      opacity: 0.9;
+      font-size: 12px;
+      white-space: nowrap;
+      z-index: 1;
+      display: none;
+    }
+
+    .icon-container:hover .icon-tooltip {
+      display: block;
+    }
+
+    .icon-tooltip img {
+      width: 200px; /* 调整图片宽度 */
+      height: auto; /* 根据宽度调整高度，保持比例 */
+      margin-bottom: 5px; /* 添加底部边距 */
+    }
 
 
+    .copyright {
+      color: var(--white-1);
+    }
+
+    .copyright a {
+      color: var(--white-1);
+    }
 
 /*-----------------------------------*\
 #NAVBAR
@@ -1713,6 +1937,44 @@ transition: color var(--transition-1);
 .navbar-link:focus { color: var(--light-gray-70); }
 
 .navbar-link.active { color: var(--orange-yellow-crayola); }
+
+
+.chevron-down {
+  display: inline-block;
+  margin-top: 3px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%; /* 相对于 .navbar-link 底部定位 */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--jet);
+  min-width: 100px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.dropdown-content button{
+  padding-bottom: 5px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.navbar-link:hover + .dropdown-content,
+.dropdown-content:hover {
+  display: block;
+}
+
 
 
 
@@ -2261,7 +2523,53 @@ font-weight: var(--fw-300);
 #BLOG
 \*-----------------------------------*/
 
+    .archive {
+      list-style: none;
+      padding: 0;
+    }
+
+
+    .archive-month {
+      font-weight: bold;
+      margin-bottom: 10px;
+      cursor: pointer;
+      color:var(--white-1);
+    }
+
+    .archive-list {
+      margin: 0;
+      padding: 0;
+      display: none;
+    }
+
+    .archive-item {
+      margin-bottom: 5px;
+    }
+
+    .archive-item a {
+      color:var(--white-1);
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 200px; /* 设置最大宽度 */
+      text-decoration: none; /* 去掉链接的下划线 */
+      /* font-size: 15px; */
+    }
+
+
+  
+
+
+
 .blog-posts { margin-bottom: 10px; }
+
+.hidden-search-header{
+  max-width: 150px;
+  border-radius: 20px;
+  /* margin-left: 80px; */
+  margin-bottom: 20px;
+}
 
 .blog-posts-list {
 display: grid;
@@ -2341,6 +2649,9 @@ font-weight: var(--fw-300);
 line-height: 1.6;
 }
 
+.blog {
+  padding-top: 10px;
+}
 
 
 
@@ -2564,7 +2875,7 @@ main {
 
 .sidebar-info { gap: 25px; }
 
-.avatar-box { border-radius: 30px; }
+.avatar-box { border-radius: 50%; }
 
 .avatar-box img { width: 120px; }
 
@@ -2585,7 +2896,7 @@ main {
 
 .info_more-btn ion-icon { display: none; }
 
-.separator { margin: 32px 0; }
+.separator { margin: 20px 0; }
 
 .contacts-list { gap: 20px; }
 
@@ -2594,7 +2905,10 @@ main {
   width: calc(100% - 64px);
 }
 
-
+.Latest-News {
+  color: var(--white-1);
+  font-size: var(--fs-2);
+}
 
 /**
  * #NAVBAR
@@ -2602,7 +2916,7 @@ main {
 
 .navbar { border-radius: 20px 20px 0 0; }
 
-.navbar-list { gap: 20px; }
+.navbar-list { gap: 10px; }
 
 .navbar-link { --fs-8: 14px; }
 
@@ -2664,6 +2978,14 @@ main {
 .testimonials-text {
   line-clamp: 2;
   -webkit-line-clamp: 2;
+}
+
+#rotateImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%; /* 设置为50%创建圆形 */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease; /* 添加过渡效果 */
 }
 
 /* testimonials modal */
@@ -2794,7 +3116,7 @@ textarea.form-input { margin-bottom: 30px; }
 
 .contacts-list {
   grid-template-columns: 1fr 1fr;
-  gap: 30px 15px;
+  gap: 10px 15px;
 }
 
 
@@ -3097,6 +3419,7 @@ main {
 }
 
 .social-list { justify-content: center; }
+
 
 
 

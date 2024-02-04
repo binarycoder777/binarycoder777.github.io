@@ -1,12 +1,16 @@
 ---
 import HiddenSearch from "../components/HiddenSearch.astro";
 
-import SiderbarHome from "../components/Siderbar-Home.astro";
+import SiderbarBlog from "../components/Siderbar-Blog.astro";
 
 import NavBar from "../components/Navbar.astro";
 
-
-
+// 加载所有博客文章的元数据
+const allPosts = await Astro.glob("../pages/posts/**/*.md");
+// 按日期排序
+const sortedPosts = allPosts.sort((a, b) => new Date(b.frontmatter.pubDate) - new Date(a.frontmatter.date));
+// 初始化时加载的文章数量
+const initialLoadCount = 10;
 
 ---
 
@@ -56,7 +60,7 @@ import NavBar from "../components/Navbar.astro";
     -->
 
     <aside class="sidebar" data-sidebar>
-      <SiderbarHome />
+      <SiderbarBlog />
     </aside>
 
 
@@ -73,345 +77,62 @@ import NavBar from "../components/Navbar.astro";
         <NavBar />
       </nav>
 
-        <!--
-        - #ABOUT
+
+
+      <!--
+        - #BLOG
       -->
 
-        <article class="about active" data-page="首页">
-          <header>
-            <h2 class="h2 article-title">关于我:</h2>
-          </header>
+      <article class="blog" data-page="日常随笔">
 
-          <section class="about-text">
-            <p>
-              👋
-              你好，我是一名来自中国的后端开发工程师。我热爱软件开发，专注于将复杂的问题转化为简单而直观的设计。
-            </p>
-            <p>
-              💻
-              我的专业领域涵盖了后端开发、数据库设计和系统架构。我喜欢挑战性的工程问题，并持续关注行业的最新动态，以确保我的技术栈始终保持更新。
-            </p>
+        <header class="hidden-search-header">
+          <!-- <HiddenSearch/> -->
+          <h2 class="h2 article-title">Records:</h2>
+        </header>
 
-            <p>
-              🚀
-              我坚信技术的价值在于为用户创造价值。在我的项目中，我努力构建出简洁、高效且易于维护的代码，以提供出色的用户体验。同时，我也注重团队协作，喜欢和团队成员分享经验、学习新技术。
-            </p>
-            <p>
-              🌐
-              当我不在编写代码的时候，我热衷于探索互联网世界。我可能在学习新的编程语言，研究新的技术趋势，或者在我的个人项目上挥洒创意。
-            </p>
-            <p>
-              📚
-              欢迎您访问我的个人站点，这里是我的创作空间、技术分享和生活感悟的集结地。我期待着与您分享我的技术见解和经验，也很愿意与您建立联系，共同探讨技术、创新和软件开发的精彩之处。
-            </p>
-          </section>
+        <section class="blog-posts">
 
-          <!--
-          - service
-        -->
+          <ul class="blog-posts-list" id="search-results">
 
-          <section class="service">
-            <h3 class="h3 service-title">我正在做的:</h3>
-
-            <ul class="service-list">
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <img
-                    src="/images/icon-design.svg
-                "
-                    alt="design icon"
-                    width="40"
-                  />
-                </div>
-
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">System Solution</h4>
-
-                  <p class="service-item-text">为客户提供专业领域的解决方案</p>
-                </div>
-              </li>
-
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <img
-                    src="/images/icon-dev.svg"
-                    alt="Web development icon"
-                    width="40"
-                  />
-                </div>
-
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Digital Innovation</h4>
-
-                  <p class="service-item-text">
-                    从生活中发现一些很酷的想法并实现它们
-                  </p>
-                </div>
-              </li>
-
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <img
-                    src="/images/icon-app.svg"
-                    alt="mobile app icon"
-                    width="40"
-                  />
-                </div>
-
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Software Development</h4>
-
-                  <p class="service-item-text">进行高质量的软件开发与交付</p>
-                </div>
-              </li>
-
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <img
-                    src="/images/icon-photo.svg"
-                    alt="camera icon"
-                    width="40"
-                  />
-                </div>
-
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Record My life</h4>
-
-                  <p class="service-item-text">
-                    向前人学习，不断积累行业领域经验
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </section>
-
-          <!--
-          - testimonials
-        -->
-
-          <section class="testimonials">
-            <h3 class="h3 testimonials-title">优秀伙伴:</h3>
-
-            <ul class="testimonials-list has-scrollbar">
-              <li class="testimonials-item">
-                <div class="content-card" data-testimonials-item>
-                  <figure class="testimonials-avatar-box">
-                    <img
-                      src="/images/avatar-1.png"
-                      alt="Daniel lewis"
-                      width="60"
-                      data-testimonials-avatar
-                    />
+            {sortedPosts.slice(0, initialLoadCount).map(post => (
+              <li class="blog-post-item" key={post.url}>
+                <a href={post.url}>
+          
+                  <figure class="blog-banner-box">
+                    <img src={post.frontmatter.image} alt={post.frontmatter.title} loading="lazy">
                   </figure>
-
-                  <h4
-                    class="h4 testimonials-item-title"
-                    data-testimonials-title
-                  >
-                    Daniel lewis
-                  </h4>
-
-                  <div class="testimonials-text" data-testimonials-text>
-                    <p>
-                      Richard was hired to create a corporate identity. We were
-                      very pleased with the work done. She has a lot of
-                      experience and is very concerned about the needs of
-                      client. Lorem ipsum dolor sit amet, ullamcous cididt
-                      consectetur adipiscing elit, seds do et eiusmod tempor
-                      incididunt ut laborels dolore magnarels alia.
+          
+                  <div class="blog-content">
+          
+                    <div class="blog-meta">
+                      <p class="blog-category">{post.frontmatter.category}</p>
+          
+                      <span class="dot"></span>
+          
+                      <time datetime={post.frontmatter.date}>{new Date(post.frontmatter.date).toLocaleDateString()}</time>
+                    </div>
+          
+                    <h3 class="h3 blog-item-title">{post.frontmatter.title}</h3>
+          
+                    <p class="blog-text">
+                      {post.frontmatter.summary}
                     </p>
+          
                   </div>
-                </div>
-              </li>
-
-              <li class="testimonials-item">
-                <div class="content-card" data-testimonials-item>
-                  <figure class="testimonials-avatar-box">
-                    <img
-                      src="/images/avatar-2.png"
-                      alt="Jessica miller"
-                      width="60"
-                      data-testimonials-avatar
-                    />
-                  </figure>
-
-                  <h4
-                    class="h4 testimonials-item-title"
-                    data-testimonials-title
-                  >
-                    Jessica miller
-                  </h4>
-
-                  <div class="testimonials-text" data-testimonials-text>
-                    <p>
-                      Richard was hired to create a corporate identity. We were
-                      very pleased with the work done. She has a lot of
-                      experience and is very concerned about the needs of
-                      client. Lorem ipsum dolor sit amet, ullamcous cididt
-                      consectetur adipiscing elit, seds do et eiusmod tempor
-                      incididunt ut laborels dolore magnarels alia.
-                    </p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="testimonials-item">
-                <div class="content-card" data-testimonials-item>
-                  <figure class="testimonials-avatar-box">
-                    <img
-                      src="/images/avatar-3.png"
-                      alt="Emily evans"
-                      width="60"
-                      data-testimonials-avatar
-                    />
-                  </figure>
-
-                  <h4
-                    class="h4 testimonials-item-title"
-                    data-testimonials-title
-                  >
-                    Emily evans
-                  </h4>
-
-                  <div class="testimonials-text" data-testimonials-text>
-                    <p>
-                      Richard was hired to create a corporate identity. We were
-                      very pleased with the work done. She has a lot of
-                      experience and is very concerned about the needs of
-                      client. Lorem ipsum dolor sit amet, ullamcous cididt
-                      consectetur adipiscing elit, seds do et eiusmod tempor
-                      incididunt ut laborels dolore magnarels alia.
-                    </p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="testimonials-item">
-                <div class="content-card" data-testimonials-item>
-                  <figure class="testimonials-avatar-box">
-                    <img
-                      src="/images/avatar-4.png"
-                      alt="Emily evans"
-                      width="60"
-                      data-testimonials-avatar
-                    />
-                  </figure>
-
-                  <h4
-                    class="h4 testimonials-item-title"
-                    data-testimonials-title
-                  >
-                    Henry william
-                  </h4>
-
-                  <div class="testimonials-text" data-testimonials-text>
-                    <p>
-                      Richard was hired to create a corporate identity. We were
-                      very pleased with the work done. She has a lot of
-                      experience and is very concerned about the needs of
-                      client. Lorem ipsum dolor sit amet, ullamcous cididt
-                      consectetur adipiscing elit, seds do et eiusmod tempor
-                      incididunt ut laborels dolore magnarels alia.
-                    </p>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </section>
-
-          <!--
-          - testimonials modal
-        -->
-
-          <div class="modal-container" data-modal-container>
-            <div class="overlay" data-overlay></div>
-
-            <section class="testimonials-modal">
-              <button class="modal-close-btn" data-modal-close-btn>
-                <ion-icon name="close-outline"></ion-icon>
-              </button>
-
-              <div class="modal-img-wrapper">
-                <figure class="modal-avatar-box">
-                  <img
-                    src="/images/avatar-1.png"
-                    alt="Daniel lewis"
-                    width="80"
-                    data-modal-img
-                  />
-                </figure>
-
-                <img src="/images/icon-quote.svg" alt="quote icon" />
-              </div>
-
-              <div class="modal-content">
-                <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
-
-                <time datetime="2021-06-14">14 June, 2021</time>
-
-                <div data-modal-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were
-                    very pleased with the work done. She has a lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum
-                    dolor sit amet, ullamcous cididt consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels
-                    dolore magnarels alia.
-                  </p>
-                </div>
-              </div>
-            </section>
-          </div>
-
-          <!--
-          - clients
-        -->
-
-          <section class="clients">
-            <h3 class="h3 clients-title">开源项目:</h3>
-
-            <ul class="clients-list has-scrollbar">
-              <li class="clients-item">
-                <a href="#">
-                  <img src="/images/logo-1-color.png" alt="client logo" />
+          
                 </a>
               </li>
+            ))}
 
-              <li class="clients-item">
-                <a href="#">
-                  <img src="/images/logo-2-color.png" alt="client logo" />
-                </a>
-              </li>
+          </ul>
 
-              <li class="clients-item">
-                <a href="#">
-                  <img src="/images/logo-3-color.png" alt="client logo" />
-                </a>
-              </li>
+        </section>
 
-              <li class="clients-item">
-                <a href="#">
-                  <img src="/images/logo-4-color.png" alt="client logo" />
-                </a>
-              </li>
-
-              <li class="clients-item">
-                <a href="#">
-                  <img src="/images/logo-5-color.png" alt="client logo" />
-                </a>
-              </li>
-
-              <li class="clients-item">
-                <a href="#">
-                  <img src="/images/logo-6-color.png" alt="client logo" />
-                </a>
-              </li>
-            </ul>
-          </section>
-        </article>
+      </article>
 
       </div>
     </main>
+
 
     <script
       type="module"
@@ -422,6 +143,58 @@ import NavBar from "../components/Navbar.astro";
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   </body>
 </html>
+
+
+
+<script>
+  document.getElementById('search-input').addEventListener('input', function() {
+    const query = this.value.toLowerCase();
+    fetch('/posts-metadata.json')
+      .then(response => response.json())
+      .then(posts => {
+        const filteredPosts = posts.filter(post => 
+          post.title.toLowerCase().includes(query) || post.summary.toLowerCase().includes(query)
+        );
+
+        const resultsContainer = document.getElementById('search-results');
+        // 首先清空现有的搜索结果
+        resultsContainer.innerHTML = '';
+
+        filteredPosts.forEach(post => {
+          // 创建<li>元素
+          const listItem = document.createElement('li');
+          listItem.className = 'blog-post-item';
+          listItem.style.listStyle = 'none';
+          listItem.style.margin = '0';
+          listItem.style.padding = '0';
+          listItem.style.display = 'list-item';
+          listItem.style.boxSizing = 'border-box';
+
+          // 设置<li>元素的内容
+          listItem.innerHTML = `
+            <a href="${post.url}">
+              <figure class="blog-banner-box">
+                <img src="${post.image}" alt="${post.title}" loading="lazy">
+              </figure>
+              <div class="blog-content">
+                <div class="blog-meta">
+                  <p class="blog-category">${post.category}</p>
+                  <span class="dot"></span>
+                  <time datetime="${post.date}">${new Date(post.date).toLocaleDateString()}</time>
+                </div>
+                <h3 class="h3 blog-item-title">${post.title}</h3>
+                <p class="blog-text">${post.summary}</p>
+              </div>
+            </a>`;
+
+          // 将新创建的<li>元素添加到结果容器中
+          resultsContainer.appendChild(listItem);
+        });
+
+
+      });
+  });
+</script>
 
 <script>
   function toggleVisibility() {
@@ -444,33 +217,6 @@ import NavBar from "../components/Navbar.astro";
   }
 }
 
-  // Add event listeners to toggle archive list visibility
-  const archiveMonths = document.querySelectorAll(".archive-month");
-
-  archiveMonths.forEach((month) => {
-    month.addEventListener("click", () => {
-      const archiveList = month.nextElementSibling as HTMLElement;
-      archiveList.style.display =
-        archiveList.style.display === "none" ? "block" : "none";
-    });
-  });
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const archiveItems = document.querySelectorAll(".archive-item");
-
-    archiveItems.forEach((item) => {
-      const month = item.querySelector(".archive-month");
-      const arrow = item.querySelector(".arrow");
-      const archiveList = item.querySelector(".archive-list");
-
-      month.addEventListener("click", function () {
-        item.classList.toggle("opened");
-        arrow.style.transform = item.classList.contains("opened")
-          ? "rotate(90deg)"
-          : "rotate(0deg)";
-      });
-    });
-  });
 
   ("use strict");
 
@@ -731,6 +477,11 @@ import NavBar from "../components/Navbar.astro";
 
   a {
     text-decoration: none;
+  }
+
+  .blog-post-item{
+    list-style: none;
+
   }
 
   li {
@@ -1807,40 +1558,9 @@ import NavBar from "../components/Navbar.astro";
 
   /*-----------------------------------*\
 #BLOG
-\*-----------------------------------*/
+/*-----------------------------------*/
 
-  .archive {
-    list-style: none;
-    padding: 0;
-  }
-
-  .archive-month {
-    font-weight: bold;
-    margin-bottom: 10px;
-    cursor: pointer;
-    color: var(--white-1);
-  }
-
-  .archive-list {
-    margin: 0;
-    padding: 0;
-    display: none;
-  }
-
-  .archive-item {
-    margin-bottom: 5px;
-  }
-
-  .archive-item a {
-    color: var(--white-1);
-    display: block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 200px; /* 设置最大宽度 */
-    text-decoration: none; /* 去掉链接的下划线 */
-    /* font-size: 15px; */
-  }
+ 
 
   .blog-posts {
     margin-bottom: 10px;

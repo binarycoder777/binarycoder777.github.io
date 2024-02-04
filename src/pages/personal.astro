@@ -23,10 +23,6 @@ import NavBar from "../components/Navbar.astro";
   -->
     <link rel="shortcut icon" href="/images/logo.ico" type="image/x-icon" />
 
-    <!--
-    - custom css link
-  -->
-    <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
 
     <!--
     - google font link
@@ -74,344 +70,60 @@ import NavBar from "../components/Navbar.astro";
       </nav>
 
         <!--
-        - #ABOUT
+        - #RESUME
       -->
 
-        <article class="about active" data-page="首页">
+        <article class="resume" data-page="个人足迹">
           <header>
-            <h2 class="h2 article-title">关于我:</h2>
+            <h2 class="h2 article-title">Footprint:</h2>
           </header>
 
-          <section class="about-text">
-            <p>
-              👋
-              你好，我是一名来自中国的后端开发工程师。我热爱软件开发，专注于将复杂的问题转化为简单而直观的设计。
-            </p>
-            <p>
-              💻
-              我的专业领域涵盖了后端开发、数据库设计和系统架构。我喜欢挑战性的工程问题，并持续关注行业的最新动态，以确保我的技术栈始终保持更新。
-            </p>
+          <div id="markdown-container"></div>
 
-            <p>
-              🚀
-              我坚信技术的价值在于为用户创造价值。在我的项目中，我努力构建出简洁、高效且易于维护的代码，以提供出色的用户体验。同时，我也注重团队协作，喜欢和团队成员分享经验、学习新技术。
-            </p>
-            <p>
-              🌐
-              当我不在编写代码的时候，我热衷于探索互联网世界。我可能在学习新的编程语言，研究新的技术趋势，或者在我的个人项目上挥洒创意。
-            </p>
-            <p>
-              📚
-              欢迎您访问我的个人站点，这里是我的创作空间、技术分享和生活感悟的集结地。我期待着与您分享我的技术见解和经验，也很愿意与您建立联系，共同探讨技术、创新和软件开发的精彩之处。
-            </p>
-          </section>
-
-          <!--
-          - service
-        -->
-
-          <section class="service">
-            <h3 class="h3 service-title">我正在做的:</h3>
-
-            <ul class="service-list">
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <img
-                    src="/images/icon-design.svg
-                "
-                    alt="design icon"
-                    width="40"
-                  />
-                </div>
-
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">System Solution</h4>
-
-                  <p class="service-item-text">为客户提供专业领域的解决方案</p>
-                </div>
-              </li>
-
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <img
-                    src="/images/icon-dev.svg"
-                    alt="Web development icon"
-                    width="40"
-                  />
-                </div>
-
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Digital Innovation</h4>
-
-                  <p class="service-item-text">
-                    从生活中发现一些很酷的想法并实现它们
-                  </p>
-                </div>
-              </li>
-
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <img
-                    src="/images/icon-app.svg"
-                    alt="mobile app icon"
-                    width="40"
-                  />
-                </div>
-
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Software Development</h4>
-
-                  <p class="service-item-text">进行高质量的软件开发与交付</p>
-                </div>
-              </li>
-
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <img
-                    src="/images/icon-photo.svg"
-                    alt="camera icon"
-                    width="40"
-                  />
-                </div>
-
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Record My life</h4>
-
-                  <p class="service-item-text">
-                    向前人学习，不断积累行业领域经验
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </section>
-
-          <!--
-          - testimonials
-        -->
-
-          <section class="testimonials">
-            <h3 class="h3 testimonials-title">优秀伙伴:</h3>
-
-            <ul class="testimonials-list has-scrollbar">
-              <li class="testimonials-item">
-                <div class="content-card" data-testimonials-item>
-                  <figure class="testimonials-avatar-box">
-                    <img
-                      src="/images/avatar-1.png"
-                      alt="Daniel lewis"
-                      width="60"
-                      data-testimonials-avatar
-                    />
-                  </figure>
-
-                  <h4
-                    class="h4 testimonials-item-title"
-                    data-testimonials-title
-                  >
-                    Daniel lewis
-                  </h4>
-
-                  <div class="testimonials-text" data-testimonials-text>
-                    <p>
-                      Richard was hired to create a corporate identity. We were
-                      very pleased with the work done. She has a lot of
-                      experience and is very concerned about the needs of
-                      client. Lorem ipsum dolor sit amet, ullamcous cididt
-                      consectetur adipiscing elit, seds do et eiusmod tempor
-                      incididunt ut laborels dolore magnarels alia.
-                    </p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="testimonials-item">
-                <div class="content-card" data-testimonials-item>
-                  <figure class="testimonials-avatar-box">
-                    <img
-                      src="/images/avatar-2.png"
-                      alt="Jessica miller"
-                      width="60"
-                      data-testimonials-avatar
-                    />
-                  </figure>
-
-                  <h4
-                    class="h4 testimonials-item-title"
-                    data-testimonials-title
-                  >
-                    Jessica miller
-                  </h4>
-
-                  <div class="testimonials-text" data-testimonials-text>
-                    <p>
-                      Richard was hired to create a corporate identity. We were
-                      very pleased with the work done. She has a lot of
-                      experience and is very concerned about the needs of
-                      client. Lorem ipsum dolor sit amet, ullamcous cididt
-                      consectetur adipiscing elit, seds do et eiusmod tempor
-                      incididunt ut laborels dolore magnarels alia.
-                    </p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="testimonials-item">
-                <div class="content-card" data-testimonials-item>
-                  <figure class="testimonials-avatar-box">
-                    <img
-                      src="/images/avatar-3.png"
-                      alt="Emily evans"
-                      width="60"
-                      data-testimonials-avatar
-                    />
-                  </figure>
-
-                  <h4
-                    class="h4 testimonials-item-title"
-                    data-testimonials-title
-                  >
-                    Emily evans
-                  </h4>
-
-                  <div class="testimonials-text" data-testimonials-text>
-                    <p>
-                      Richard was hired to create a corporate identity. We were
-                      very pleased with the work done. She has a lot of
-                      experience and is very concerned about the needs of
-                      client. Lorem ipsum dolor sit amet, ullamcous cididt
-                      consectetur adipiscing elit, seds do et eiusmod tempor
-                      incididunt ut laborels dolore magnarels alia.
-                    </p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="testimonials-item">
-                <div class="content-card" data-testimonials-item>
-                  <figure class="testimonials-avatar-box">
-                    <img
-                      src="/images/avatar-4.png"
-                      alt="Emily evans"
-                      width="60"
-                      data-testimonials-avatar
-                    />
-                  </figure>
-
-                  <h4
-                    class="h4 testimonials-item-title"
-                    data-testimonials-title
-                  >
-                    Henry william
-                  </h4>
-
-                  <div class="testimonials-text" data-testimonials-text>
-                    <p>
-                      Richard was hired to create a corporate identity. We were
-                      very pleased with the work done. She has a lot of
-                      experience and is very concerned about the needs of
-                      client. Lorem ipsum dolor sit amet, ullamcous cididt
-                      consectetur adipiscing elit, seds do et eiusmod tempor
-                      incididunt ut laborels dolore magnarels alia.
-                    </p>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </section>
-
-          <!--
-          - testimonials modal
-        -->
-
-          <div class="modal-container" data-modal-container>
-            <div class="overlay" data-overlay></div>
-
-            <section class="testimonials-modal">
-              <button class="modal-close-btn" data-modal-close-btn>
-                <ion-icon name="close-outline"></ion-icon>
-              </button>
-
-              <div class="modal-img-wrapper">
-                <figure class="modal-avatar-box">
-                  <img
-                    src="/images/avatar-1.png"
-                    alt="Daniel lewis"
-                    width="80"
-                    data-modal-img
-                  />
-                </figure>
-
-                <img src="/images/icon-quote.svg" alt="quote icon" />
+          <section class="timeline">
+            <div class="title-wrapper">
+              <div class="icon-box">
+                <ion-icon name="book-outline"></ion-icon>
               </div>
 
-              <div class="modal-content">
-                <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
+              <h3 class="h3">经历</h3>
+            </div>
 
-                <time datetime="2021-06-14">14 June, 2021</time>
+            <ol class="timeline-list">
 
-                <div data-modal-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were
-                    very pleased with the work done. She has a lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum
-                    dolor sit amet, ullamcous cididt consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels
-                    dolore magnarels alia.
-                  </p>
-                </div>
-              </div>
-            </section>
-          </div>
 
-          <!--
-          - clients
-        -->
+              <li class="timeline-item">
+                <h4 class="h4 timeline-item-title">第一次参加工作</h4>
 
-          <section class="clients">
-            <h3 class="h3 clients-title">开源项目:</h3>
+                <span>2023 - 07</span>
 
-            <ul class="clients-list has-scrollbar">
-              <li class="clients-item">
-                <a href="#">
-                  <img src="/images/logo-1-color.png" alt="client logo" />
-                </a>
+                <p class="timeline-text">
+                  当迈入职场的那一刻，心中充满了既紧张又兴奋的情绪。紧张，因为即将面临全新的挑战和未知的环境；兴奋，因为这是展示自己能力、学习成长的机会。所幸的是遇到了一群志同道合的同事，导师。
+                  每一个伟大的职业生涯都是从第一步开始的，每一次挑战都是成长的机会。保持谦逊，积极学习，从每一次经历中吸取教训，加油吧......
+                </p>
               </li>
 
-              <li class="clients-item">
-                <a href="#">
-                  <img src="/images/logo-2-color.png" alt="client logo" />
-                </a>
-              </li>
 
-              <li class="clients-item">
-                <a href="#">
-                  <img src="/images/logo-3-color.png" alt="client logo" />
-                </a>
-              </li>
+              <li class="timeline-item">
+                <h4 class="h4 timeline-item-title">
+                  攻读计算机学士学位
+                </h4>
 
-              <li class="clients-item">
-                <a href="#">
-                  <img src="/images/logo-4-color.png" alt="client logo" />
-                </a>
-              </li>
+                <span>2019 - 09</span>
 
-              <li class="clients-item">
-                <a href="#">
-                  <img src="/images/logo-5-color.png" alt="client logo" />
-                </a>
+                <p class="timeline-text">
+                  在2019年，进入了大学攻读我的计算机学士学位。在这个过程中，学习到了编程语言的魅力，比如Java、Python和C，也积极参与了实验室项目，通过实践应用我所学的知识，解决具体问题。
+                  从此，我踏入了自己的编程生涯......
+                </p>
               </li>
-
-              <li class="clients-item">
-                <a href="#">
-                  <img src="/images/logo-6-color.png" alt="client logo" />
-                </a>
-              </li>
-            </ul>
+            </ol>
           </section>
         </article>
 
+
       </div>
     </main>
+
 
     <script
       type="module"
@@ -423,190 +135,225 @@ import NavBar from "../components/Navbar.astro";
   </body>
 </html>
 
-<script>
-  function toggleVisibility() {
-  // 获取元素
-  var latestNewsDiv = document.querySelector(".latest-info");
-  var archiveDiv = document.querySelector(".article-archiving");
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
-  // 切换显示状态
-  if (latestNewsDiv.style.display === "none") {
-    console.log("1")
-    latestNewsDiv.style.display = "block";
-    archiveDiv.style.display = "none";
-    localStorage.setItem('displayState', 'latest');
-  } else {
-    console.log("0")
 
-    latestNewsDiv.style.display = "none";
-    archiveDiv.style.display = "block";
-    localStorage.setItem('displayState', 'archive');
-  }
-}
-
-  // Add event listeners to toggle archive list visibility
-  const archiveMonths = document.querySelectorAll(".archive-month");
-
-  archiveMonths.forEach((month) => {
-    month.addEventListener("click", () => {
-      const archiveList = month.nextElementSibling as HTMLElement;
-      archiveList.style.display =
-        archiveList.style.display === "none" ? "block" : "none";
+<script type="text/markdown" id="markdown">
+  ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=BinaryCoder777&layout=compact&theme=transparent&&langs_count=20&hide_border=true&card_width=500&title_color=fff)
+</script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const markdownContent = document.getElementById('markdown').innerText;
+      const htmlContent = marked.parse(markdownContent);
+      document.getElementById('markdown-container').innerHTML = htmlContent;
     });
-  });
+  </script>
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const archiveItems = document.querySelectorAll(".archive-item");
 
-    archiveItems.forEach((item) => {
-      const month = item.querySelector(".archive-month");
-      const arrow = item.querySelector(".arrow");
-      const archiveList = item.querySelector(".archive-list");
-
-      month.addEventListener("click", function () {
-        item.classList.toggle("opened");
-        arrow.style.transform = item.classList.contains("opened")
-          ? "rotate(90deg)"
-          : "rotate(0deg)";
+<script>
+    function toggleVisibility() {
+    // 获取元素
+    var latestNewsDiv = document.querySelector(".latest-info");
+    var archiveDiv = document.querySelector(".article-archiving");
+  
+    // 切换显示状态
+    if (latestNewsDiv.style.display === "none") {
+      console.log("1")
+      latestNewsDiv.style.display = "block";
+      archiveDiv.style.display = "none";
+      localStorage.setItem('displayState', 'latest');
+    } else {
+      console.log("0")
+  
+      latestNewsDiv.style.display = "none";
+      archiveDiv.style.display = "block";
+      localStorage.setItem('displayState', 'archive');
+    }
+  }
+  
+    // Add event listeners to toggle archive list visibility
+    const archiveMonths = document.querySelectorAll(".archive-month");
+  
+    archiveMonths.forEach((month) => {
+      month.addEventListener("click", () => {
+        const archiveList = month.nextElementSibling as HTMLElement;
+        archiveList.style.display =
+          archiveList.style.display === "none" ? "block" : "none";
       });
     });
-  });
-
-  ("use strict");
-
-  const image = document.getElementById("rotateImage");
-
-  image.addEventListener("mouseover", () => {
-    image.classList.add("rotate");
-  });
-
-  image.addEventListener("mouseout", () => {
-    image.classList.remove("rotate");
-  });
-
-  // element toggle function
-  const elementToggleFunc = function (elem) {
-    elem.classList.toggle("active");
-  };
-
-  // sidebar variables
-  const sidebar = document.querySelector("[data-sidebar]");
-  const sidebarBtn = document.querySelector("[data-sidebar-btn]");
-
-  // sidebar toggle functionality for mobile
-  sidebarBtn.addEventListener("click", function () {
-    elementToggleFunc(sidebar);
-  });
-
-  // testimonials variables
-  const testimonialsItem = document.querySelectorAll(
-    "[data-testimonials-item]",
-  );
-  const modalContainer = document.querySelector("[data-modal-container]");
-  const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
-  const overlay = document.querySelector("[data-overlay]");
-
-  // modal variable
-  const modalImg = document.querySelector("[data-modal-img]");
-  const modalTitle = document.querySelector("[data-modal-title]");
-  const modalText = document.querySelector("[data-modal-text]");
-
-  // modal toggle function
-  const testimonialsModalFunc = function () {
-    modalContainer.classList.toggle("active");
-    overlay.classList.toggle("active");
-  };
-
-  // add click event to all modal items
-  for (let i = 0; i < testimonialsItem.length; i++) {
-    testimonialsItem[i].addEventListener("click", function () {
-      modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
-      modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
-      modalTitle.innerHTML = this.querySelector(
-        "[data-testimonials-title]",
-      ).innerHTML;
-      modalText.innerHTML = this.querySelector(
-        "[data-testimonials-text]",
-      ).innerHTML;
-
-      testimonialsModalFunc();
+  
+    document.addEventListener("DOMContentLoaded", function () {
+      const archiveItems = document.querySelectorAll(".archive-item");
+  
+      archiveItems.forEach((item) => {
+        const month = item.querySelector(".archive-month");
+        const arrow = item.querySelector(".arrow");
+        const archiveList = item.querySelector(".archive-list");
+  
+        month.addEventListener("click", function () {
+          item.classList.toggle("opened");
+          arrow.style.transform = item.classList.contains("opened")
+            ? "rotate(90deg)"
+            : "rotate(0deg)";
+        });
+      });
     });
-  }
-
-  // add click event to modal close button
-  modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-  overlay.addEventListener("click", testimonialsModalFunc);
-
-  // custom select variables
-  const select = document.querySelector("[data-select]");
-  const selectItems = document.querySelectorAll("[data-select-item]");
-  const selectValue = document.querySelector("[data-selecct-value]");
-  const filterBtn = document.querySelectorAll("[data-filter-btn]");
-
-  select.addEventListener("click", function () {
-    elementToggleFunc(this);
-  });
-
-  // add event in all select items
-  for (let i = 0; i < selectItems.length; i++) {
-    selectItems[i].addEventListener("click", function () {
-      let selectedValue = this.innerText.toLowerCase();
-      selectValue.innerText = this.innerText;
-      elementToggleFunc(select);
-      filterFunc(selectedValue);
+  
+    ("use strict");
+  
+    const image = document.getElementById("rotateImage");
+  
+    image.addEventListener("mouseover", () => {
+      image.classList.add("rotate");
     });
-  }
-
-  // filter variables
-  const filterItems = document.querySelectorAll("[data-filter-item]");
-
-  const filterFunc = function (selectedValue) {
-    for (let i = 0; i < filterItems.length; i++) {
-      if (selectedValue === "all") {
-        filterItems[i].classList.add("active");
-      } else if (selectedValue === filterItems[i].dataset.category) {
-        filterItems[i].classList.add("active");
-      } else {
-        filterItems[i].classList.remove("active");
-      }
+  
+    image.addEventListener("mouseout", () => {
+      image.classList.remove("rotate");
+    });
+  
+    // element toggle function
+    const elementToggleFunc = function (elem) {
+      elem.classList.toggle("active");
+    };
+  
+    // sidebar variables
+    const sidebar = document.querySelector("[data-sidebar]");
+    const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+  
+    // sidebar toggle functionality for mobile
+    sidebarBtn.addEventListener("click", function () {
+      elementToggleFunc(sidebar);
+    });
+  
+    // testimonials variables
+    const testimonialsItem = document.querySelectorAll(
+      "[data-testimonials-item]",
+    );
+    const modalContainer = document.querySelector("[data-modal-container]");
+    const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
+    const overlay = document.querySelector("[data-overlay]");
+  
+    // modal variable
+    const modalImg = document.querySelector("[data-modal-img]");
+    const modalTitle = document.querySelector("[data-modal-title]");
+    const modalText = document.querySelector("[data-modal-text]");
+  
+    // modal toggle function
+    const testimonialsModalFunc = function () {
+      modalContainer.classList.toggle("active");
+      overlay.classList.toggle("active");
+    };
+  
+    // add click event to all modal items
+    for (let i = 0; i < testimonialsItem.length; i++) {
+      testimonialsItem[i].addEventListener("click", function () {
+        modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
+        modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
+        modalTitle.innerHTML = this.querySelector(
+          "[data-testimonials-title]",
+        ).innerHTML;
+        modalText.innerHTML = this.querySelector(
+          "[data-testimonials-text]",
+        ).innerHTML;
+  
+        testimonialsModalFunc();
+      });
     }
-  };
-
-  // add event in all filter button items for large screen
-  let lastClickedBtn = filterBtn[0];
-
-  for (let i = 0; i < filterBtn.length; i++) {
-    filterBtn[i].addEventListener("click", function () {
-      let selectedValue = this.innerText.toLowerCase();
-      selectValue.innerText = this.innerText;
-      filterFunc(selectedValue);
-
-      lastClickedBtn.classList.remove("active");
-      this.classList.add("active");
-      lastClickedBtn = this;
+  
+    // add click event to modal close button
+    modalCloseBtn.addEventListener("click", testimonialsModalFunc);
+    overlay.addEventListener("click", testimonialsModalFunc);
+  
+    // custom select variables
+    const select = document.querySelector("[data-select]");
+    const selectItems = document.querySelectorAll("[data-select-item]");
+    const selectValue = document.querySelector("[data-selecct-value]");
+    const filterBtn = document.querySelectorAll("[data-filter-btn]");
+  
+    select.addEventListener("click", function () {
+      elementToggleFunc(this);
     });
-  }
-
-  // contact form variables
-  const form = document.querySelector("[data-form]");
-  const formInputs = document.querySelectorAll("[data-form-input]");
-  const formBtn = document.querySelector("[data-form-btn]");
-
-  // add event to all form input field
-  for (let i = 0; i < formInputs.length; i++) {
-    formInputs[i].addEventListener("input", function () {
-      // check form validation
-      if (form.checkValidity()) {
-        formBtn.removeAttribute("disabled");
-      } else {
-        formBtn.setAttribute("disabled", "");
+  
+    // add event in all select items
+    for (let i = 0; i < selectItems.length; i++) {
+      selectItems[i].addEventListener("click", function () {
+        let selectedValue = this.innerText.toLowerCase();
+        selectValue.innerText = this.innerText;
+        elementToggleFunc(select);
+        filterFunc(selectedValue);
+      });
+    }
+  
+    // filter variables
+    const filterItems = document.querySelectorAll("[data-filter-item]");
+  
+    const filterFunc = function (selectedValue) {
+      for (let i = 0; i < filterItems.length; i++) {
+        if (selectedValue === "all") {
+          filterItems[i].classList.add("active");
+        } else if (selectedValue === filterItems[i].dataset.category) {
+          filterItems[i].classList.add("active");
+        } else {
+          filterItems[i].classList.remove("active");
+        }
       }
-    });
-  }
-
-
-</script>
-
+    };
+  
+    // add event in all filter button items for large screen
+    let lastClickedBtn = filterBtn[0];
+  
+    for (let i = 0; i < filterBtn.length; i++) {
+      filterBtn[i].addEventListener("click", function () {
+        let selectedValue = this.innerText.toLowerCase();
+        selectValue.innerText = this.innerText;
+        filterFunc(selectedValue);
+  
+        lastClickedBtn.classList.remove("active");
+        this.classList.add("active");
+        lastClickedBtn = this;
+      });
+    }
+  
+    // contact form variables
+    const form = document.querySelector("[data-form]");
+    const formInputs = document.querySelectorAll("[data-form-input]");
+    const formBtn = document.querySelector("[data-form-btn]");
+  
+    // add event to all form input field
+    for (let i = 0; i < formInputs.length; i++) {
+      formInputs[i].addEventListener("input", function () {
+        // check form validation
+        if (form.checkValidity()) {
+          formBtn.removeAttribute("disabled");
+        } else {
+          formBtn.setAttribute("disabled", "");
+        }
+      });
+    }
+  
+    // page navigation variables
+    const navigationLinks = document.querySelectorAll("[data-nav-link]");
+    const pages = document.querySelectorAll("[data-page]");
+  
+    // add event to all nav link
+    for (let i = 0; i < navigationLinks.length; i++) {
+      navigationLinks[i].addEventListener("click", function () {
+        for (let i = 0; i < pages.length; i++) {
+          if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
+            // pages[i].classList.add("active");
+            navigationLinks[i].classList.add("active");
+            window.scrollTo(0, 0);
+          } else {
+            pages[i].classList.remove("active");
+            navigationLinks[i].classList.remove("active");
+          }
+        }
+      });
+    }
+  
+  </script>
+  
 
 <style>
   /*-----------------------------------*\
@@ -827,6 +574,7 @@ import NavBar from "../components/Navbar.astro";
   .icon-box ion-icon {
     --ionicon-stroke-width: 35px;
   }
+
 
   article.active {
     display: block;
@@ -1627,6 +1375,31 @@ import NavBar from "../components/Navbar.astro";
     height: 100%;
     border-radius: inherit;
   }
+
+
+#markdown-container {
+  width: 100%;
+  /* 其他样式，如padding、margin等 */
+}
+
+#markdown-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+#markdown-container table {
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  #markdown-container {
+    font-size: 14px;
+  }
+}
+
+
 
   /*-----------------------------------*\
 #PORTFOLIO
