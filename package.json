@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "npm run build astro build",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -13,12 +13,7 @@
     "@astrojs/vue": "^4.0.8",
     "astro": "^4.2.8",
     "element-plus": "^2.5.3",
-    "gray-matter": "^4.0.3",
-    "lunr": "^2.3.9",
     "save": "^2.9.0",
     "vue": "^3.4.15"
-  },
-  "devDependencies": {
-    "@types/lunr": "^2.3.7"
   }
 }
