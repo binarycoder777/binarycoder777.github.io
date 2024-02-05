@@ -5,6 +5,6 @@ import vue from "@astrojs/vue";
 // https://astro.build/config
 export default defineConfig({
   integrations: [vue()],
-  site: 'https://binarycoder777.github.io',
-  base: '/binarycoder777',
+  site: 'https://binarycoder777.github.io'
+  // base: '/binarycoder777.github.io',
 });
