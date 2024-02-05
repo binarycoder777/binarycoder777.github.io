@@ -1,5 +1,5 @@
 ---
-import SiderbarBlog from '../components/Siderbar-Blog.astro'
+import SiderbarBlog from '../components/SiderbarHome.astro'
 import Navbar from '../components/Navbar.astro';
 const { frontmatter } = Astro.props;
 ---
@@ -45,7 +45,7 @@ const { frontmatter } = Astro.props;
     -->
 
     <aside class="sidebar" data-sidebar>
-      <SiderbarBlog client:load />
+      <SiderbarBlog/>
     </aside>
 
 
@@ -64,7 +64,7 @@ const { frontmatter } = Astro.props;
 
       <nav class="navbar">
 
-        <Navbar client:load />
+        <Navbar/>
 
       </nav>
 

@@ -1,69 +1,57 @@
 ---
-// // 使用getStaticPaths读取/posts/目录下所有的Markdown文件
-// const latesInfo = await Astro.glob("../pages/posts/**/*.md");
+// 使用getStaticPaths读取/posts/目录下所有的Markdown文件
+const latesInfo = await Astro.glob("../pages/posts/**/*.md");
 
-// 获取所有Markdown文件
-const posts = await Astro.glob("../pages/posts/**/*.md");
+// 将文章按日期排序
+const sortedLatesInfo = latesInfo
+  .sort((a, b) => {
+    // 显式地将日期字符串转换为Date对象
+    const dateA = new Date(a.frontmatter.date);
+    const dateB = new Date(b.frontmatter.date);
 
-// 归档文章
-const archive = posts.reduce((acc, post) => {
-  // 获取年月作为归档的键
-  const yearMonth = post.frontmatter.date.slice(0,7); // "YYYY-MM"
-  
-  // 如果该年月还未创建数组，则初始化
-  if (!acc[yearMonth]) {
-    acc[yearMonth] = [];
-  }
-  
-  // 将文章添加到相应的年月下
-  acc[yearMonth].push(post);
-  
-  return acc;
-}, {});
+    // 比较转换后的Date对象
+    return dateB.getTime() - dateA.getTime();
+  })
+  .slice(0, 5);
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BinaryCoder777</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BinaryCoder777</title>
 
-  <!--
+    <!--
     - favicon
   -->
-  <link rel="shortcut icon" href="/images/logo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/logo.ico" type="image/x-icon">
 
-  <!--
+    <!--
     - google font link
   -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-dREcN7NO8DOFB9Wv5BLt3ZXmObAzJbYTBmjvTnI+DLgNUOf9MP+J6ST1KHy2aMJa" crossorigin="anonymous">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-dREcN7NO8DOFB9Wv5BLt3ZXmObAzJbYTBmjvTnI+DLgNUOf9MP+J6ST1KHy2aMJa" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <!--
       - #SIDEBAR
     -->
-      <div class="sidebar-info">
+    <div class="sidebar-info">
         <!-- 个人信息 -->
         <figure class="avatar-box">
-          <img
-            src="/my-logo.png"
-            alt="Richard hanrick"
-            width="80"
-            id="rotateImage"
-          />
+            <img src="/my-logo.png" alt="Richard hanrick" width="80" id="rotateImage" />
         </figure>
 
         <div class="info-content">
-          <h1 class="name" title="Richard hanrick">BinaryCoder777</h1>
+            <h1 class="name" title="Richard hanrick">BinaryCoder777</h1>
 
-          <p class="title">Software Developer</p>
+            <p class="title">Software Developer</p>
         </div>
 
         <button class="info_more-btn" data-sidebar-btn>
@@ -73,90 +61,75 @@ const archive = posts.reduce((acc, post) => {
         </button>
         <!-- 社交连接 -->
         <ul class="social-list">
-          <li class="social-item">
-            <a href="https://github.com/BinaryCoder777" class="social-link">
-              <div class="icon-container">
-                <ion-icon name="logo-github"></ion-icon>
-                <div class="icon-tooltip">Github</div>
-              </div>
-            </a>
-          </li>
+            <li class="social-item">
+                <a href="https://github.com/BinaryCoder777" class="social-link">
+                    <div class="icon-container">
+                        <ion-icon name="logo-github"></ion-icon>
+                        <div class="icon-tooltip">Github</div>
+                    </div>
+                </a>
+            </li>
 
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <div class="icon-container">
-                <ion-icon name="mail-outline"></ion-icon>
-                <div class="icon-tooltip">发送邮件</div>
-              </div>
-            </a>
-          </li>
+            <li class="social-item">
+                <a href="#" class="social-link">
+                    <div class="icon-container">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <div class="icon-tooltip">发送邮件</div>
+                    </div>
+                </a>
+            </li>
 
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <div class="icon-container">
-                <ion-icon name="logo-wechat"></ion-icon>
-                <div class="icon-tooltip">
-                  <img src="/vx/vx.pic.jpg" alt="Image Tooltip" />
-                </div>
-              </div>
-            </a>
-          </li>
+            <li class="social-item">
+                <a href="#" class="social-link">
+                    <div class="icon-container">
+                        <ion-icon name="logo-wechat"></ion-icon>
+                        <div class="icon-tooltip">
+                            <img src="/vx/vx.pic.jpg" alt="Image Tooltip" />
+                        </div>
+                    </div>
+                </a>
+            </li>
         </ul>
-      </div>
+    </div>
 
-      <div class="separator"></div>
+    <div class="separator"></div>
 
-      <div class="sidebar-info_more">
+    <div class="sidebar-info_more">
 
-        <div class="article-archiving">
-          <p class="Latest-News">文章归档:</p>
+        <div class="latest-info">
+            <p class="Latest-News">最新动态:</p>
 
-          <ul class="contacts-list">
-            <ul class="archive">
-              {Object.entries(archive).map(([yearMonth, posts]) => (
-                <li key={yearMonth}>
-                <span class="archive-month">{yearMonth}</span>
-                <ul class="archive-list">
-                  {posts.map(post => (
-                            <li class="archive-item" key={post.url}>
-                              <a href={post.url}>{post.frontmatter.title}</a>
-                            </li>
-                        ))}
-                </ul>
-              </li>
-            ))}
+            <ul class="contacts-list">
+                { sortedLatesInfo.map((info) => (
+                <li class="contact-item">
+                    <div class="contact-info">
+                        <p class="contact-title">{info.frontmatter.date.slice(0,10)}</p>
+
+                        <a href={info.url} class="contact-link">
+                      {info.frontmatter.title}
+                    </a>
+                    </div>
+                </li>
+                )) }
             </ul>
-          </ul>
         </div>
 
         <div class="separator"></div>
 
         <div class="footer-content">
-          <div class="copyright">
-            <a href="/privacy-policy" style="display: inline;">
+            <div class="copyright">
+                <a href="/privacy-policy" style="display: inline;">
               &copy; 2024 BinaryCoder777.
               保留所有权利。本站所有内容均受版权法保护，未经许可，禁止复制或转载。
             </a>
-          </div>
+            </div>
         </div>
-      </div>
-
-
-
-
-
-
-
-  <!--
-    - custom js link
-  -->
-  <!-- <script src="./assets/js/script.js"></script> -->
-
-  <!--
+    </div>
+    <!--
     - ionicon link
   -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </body>
 
@@ -175,139 +148,6 @@ const archive = posts.reduce((acc, post) => {
         archiveList.style.display === "none" ? "block" : "none";
     });
   });
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const archiveItems = document.querySelectorAll(".archive-item");
-
-    archiveItems.forEach((item) => {
-      const month = item.querySelector(".archive-month");
-      const arrow = item.querySelector(".arrow") as HTMLElement;
-      const archiveList = item.querySelector(".archive-list");
-
-      month.addEventListener("click", function () {
-        item.classList.toggle("opened");
-        arrow.style.transform = item.classList.contains("opened")
-          ? "rotate(90deg)"
-          : "rotate(0deg)";
-      });
-    });
-  });
-
-  ("use strict");
-
-  const image = document.getElementById("rotateImage");
-
-  image.addEventListener("mouseover", () => {
-    image.classList.add("rotate");
-  });
-
-  image.addEventListener("mouseout", () => {
-    image.classList.remove("rotate");
-  });
-
-  // element toggle function
-  const elementToggleFunc = function (elem) {
-    elem.classList.toggle("active");
-  };
-
-  // sidebar variables
-  const sidebar = document.querySelector("[data-sidebar]");
-  const sidebarBtn = document.querySelector("[data-sidebar-btn]");
-
-  // sidebar toggle functionality for mobile
-  sidebarBtn.addEventListener("click", function () {
-    elementToggleFunc(sidebar);
-  });
-
-  // testimonials variables
-  const testimonialsItem = document.querySelectorAll(
-    "[data-testimonials-item]",
-  );
-  const modalContainer = document.querySelector("[data-modal-container]");
-  const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
-  const overlay = document.querySelector("[data-overlay]");
-
-  // modal variable
-  const modalImg = document.querySelector("[data-modal-img]");
-  const modalTitle = document.querySelector("[data-modal-title]");
-  const modalText = document.querySelector("[data-modal-text]");
-
-  // modal toggle function
-  const testimonialsModalFunc = function () {
-    modalContainer.classList.toggle("active");
-    overlay.classList.toggle("active");
-  };
-
-  // add click event to all modal items
-  for (let i = 0; i < testimonialsItem.length; i++) {
-    testimonialsItem[i].addEventListener("click", function () {
-      modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
-      modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
-      modalTitle.innerHTML = this.querySelector(
-        "[data-testimonials-title]",
-      ).innerHTML;
-      modalText.innerHTML = this.querySelector(
-        "[data-testimonials-text]",
-      ).innerHTML;
-
-      testimonialsModalFunc();
-    });
-  }
-
-  // add click event to modal close button
-  modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-  overlay.addEventListener("click", testimonialsModalFunc);
-
-  // custom select variables
-  const select = document.querySelector("[data-select]");
-  const selectItems = document.querySelectorAll("[data-select-item]");
-  const selectValue = document.querySelector("[data-selecct-value]");
-  const filterBtn = document.querySelectorAll("[data-filter-btn]");
-
-  select.addEventListener("click", function () {
-    elementToggleFunc(this);
-  });
-
-  // add event in all select items
-  for (let i = 0; i < selectItems.length; i++) {
-    selectItems[i].addEventListener("click", function () {
-      let selectedValue = this.innerText.toLowerCase();
-      selectValue.innerText = this.innerText;
-      elementToggleFunc(select);
-      filterFunc(selectedValue);
-    });
-  }
-
-  // filter variables
-  const filterItems = document.querySelectorAll("[data-filter-item]");
-
-  const filterFunc = function (selectedValue) {
-    for (let i = 0; i < filterItems.length; i++) {
-      if (selectedValue === "all") {
-        filterItems[i].classList.add("active");
-      } else if (selectedValue === filterItems[i].dataset.category) {
-        filterItems[i].classList.add("active");
-      } else {
-        filterItems[i].classList.remove("active");
-      }
-    }
-  };
-
-  // add event in all filter button items for large screen
-  let lastClickedBtn = filterBtn[0];
-
-  for (let i = 0; i < filterBtn.length; i++) {
-    filterBtn[i].addEventListener("click", function () {
-      let selectedValue = this.innerText.toLowerCase();
-      selectValue.innerText = this.innerText;
-      filterFunc(selectedValue);
-
-      lastClickedBtn.classList.remove("active");
-      this.classList.add("active");
-      lastClickedBtn = this;
-    });
-  }
-
 
 </script>
 
@@ -1934,9 +1774,12 @@ const archive = posts.reduce((acc, post) => {
     }
 
     .article-archiving {
-      display: block;
+      display: none;
     }
 
+    .latest-info {
+      display: block; /* 初始时显示最新动态 */
+    }
 
     /**
  * #NAVBAR

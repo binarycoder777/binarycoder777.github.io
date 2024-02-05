@@ -1,11 +1,22 @@
 ---
-// 使用getStaticPaths读取/posts/目录下所有的Markdown文件
-const latesInfo = await Astro.glob("../pages/posts/**/*.md");
+// 获取所有Markdown文件
+const posts = await Astro.glob("../pages/posts/**/*.md");
 
-// 将文章按日期排序
-const sortedLatesInfo = latesInfo
-  .sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date))
-  .slice(0, 5);
+// 归档文章
+const archive = posts.reduce((acc, post) => {
+  // 获取年月作为归档的键
+  const yearMonth = post.frontmatter.date.slice(0,7); // "YYYY-MM"
+  
+  // 如果该年月还未创建数组，则初始化
+  if (!acc[yearMonth]) {
+    acc[yearMonth] = [];
+  }
+  
+  // 将文章添加到相应的年月下
+  acc[yearMonth].push(post);
+  
+  return acc;
+}, {});
 ---
 
 <!DOCTYPE html>
@@ -94,23 +105,24 @@ const sortedLatesInfo = latesInfo
 
       <div class="sidebar-info_more">
 
-        <div class="latest-info">
-          <p class="Latest-News">最新动态:</p>
+        <div class="article-archiving">
+          <p class="Latest-News">文章归档:</p>
 
           <ul class="contacts-list">
-            {
-              sortedLatesInfo.map((info) => (
-                <li class="contact-item">
-                  <div class="contact-info">
-                    <p class="contact-title">{info.frontmatter.date.slice(0,10)}</p>
-
-                    <a href={info.url} class="contact-link">
-                      {info.frontmatter.title}
-                    </a>
-                  </div>
-                </li>
-              ))
-            }
+            <ul class="archive">
+              {Object.entries(archive).map(([yearMonth, posts]) => (
+                <li key={yearMonth}>
+                <span class="archive-month">{yearMonth}</span>
+                <ul class="archive-list">
+                  {posts.map(post => (
+                            <li class="archive-item" key={post.url}>
+                              <a href={post.url}>{post.frontmatter.title}</a>
+                            </li>
+                        ))}
+                </ul>
+              </li>
+            ))}
+            </ul>
           </ul>
         </div>
 
@@ -130,18 +142,8 @@ const sortedLatesInfo = latesInfo
 
 
 
-
-
-  <!--
-    - custom js link
-  -->
-  <!-- <script src="./assets/js/script.js"></script> -->
-
-  <!--
-    - ionicon link
-  -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </body>
 
@@ -149,8 +151,6 @@ const sortedLatesInfo = latesInfo
 
 
 <script>
-
-
 
   // Add event listeners to toggle archive list visibility
   const archiveMonths = document.querySelectorAll(".archive-month");
@@ -180,7 +180,7 @@ const sortedLatesInfo = latesInfo
     });
   });
 
-  ("use strict");
+  // ("use strict");
 
   const image = document.getElementById("rotateImage");
 
@@ -295,42 +295,7 @@ const sortedLatesInfo = latesInfo
     });
   }
 
-  // contact form variables
-  const form = document.querySelector("[data-form]");
-  const formInputs = document.querySelectorAll("[data-form-input]");
-  const formBtn = document.querySelector("[data-form-btn]");
 
-  // add event to all form input field
-  for (let i = 0; i < formInputs.length; i++) {
-    formInputs[i].addEventListener("input", function () {
-      // check form validation
-      if (form.checkValidity()) {
-        formBtn.removeAttribute("disabled");
-      } else {
-        formBtn.setAttribute("disabled", "");
-      }
-    });
-  }
-
-  // page navigation variables
-  const navigationLinks = document.querySelectorAll("[data-nav-link]");
-  const pages = document.querySelectorAll("[data-page]");
-
-  // add event to all nav link
-  for (let i = 0; i < navigationLinks.length; i++) {
-    navigationLinks[i].addEventListener("click", function () {
-      for (let i = 0; i < pages.length; i++) {
-        if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-          pages[i].classList.add("active");
-          navigationLinks[i].classList.add("active");
-          window.scrollTo(0, 0);
-        } else {
-          pages[i].classList.remove("active");
-          navigationLinks[i].classList.remove("active");
-        }
-      }
-    });
-  }
 </script>
 
 
@@ -1956,12 +1921,9 @@ const sortedLatesInfo = latesInfo
     }
 
     .article-archiving {
-      display: none;
+      display: block;
     }
 
-    .latest-info {
-      display: block; /* 初始时显示最新动态 */
-    }
 
     /**
  * #NAVBAR

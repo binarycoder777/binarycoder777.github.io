@@ -1,5 +1,6 @@
 ---
 import HiddenSearch from '../components/HiddenSearch.astro'
+import { ViewTransitions } from "astro:transitions";
 ---
 
 <!DOCTYPE html>
@@ -23,6 +24,7 @@ import HiddenSearch from '../components/HiddenSearch.astro'
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <ViewTransitions />
 </head>
 
 <body>
@@ -47,38 +49,38 @@ import HiddenSearch from '../components/HiddenSearch.astro'
         <ul class="navbar-list">
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link onclick="window.location.href='/BinaryCoder777';">
+            <button class="navbar-link" data-nav-link onclick="window.location.href='/';">
               首页
             </button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link onclick="window.location.href='/BinaryCoder777/personal';">
+            <button class="navbar-link" data-nav-link onclick="window.location.href='/personal';">
               个人足迹
             </button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link onclick="window.location.href='/BinaryCoder777/blog';">
+            <button class="navbar-link" data-nav-link onclick="window.location.href='/blog';">
               日常随笔
             </button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link onclick="window.location.href='/BinaryCoder777/project';">
+            <button class="navbar-link" data-nav-link onclick="window.location.href='/project';">
               项目开发
             </button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link onclick="window.location.href='/BinaryCoder777/book';">
+            <button class="navbar-link" data-nav-link onclick="window.location.href='/book';">
               我的书库
             </button>
           </li>
 
           <li class="navbar-item">
             <div class="dropdown">
-              <button class="navbar-link" data-nav-link onclick="window.location.href='/BinaryCoder777/other';">其他
+              <button class="navbar-link" data-nav-link onclick="window.location.href='/other';">其他
                 <ion-icon class="chevron-down" name="chevron-down-outline"></ion-icon>
               </button>
               
