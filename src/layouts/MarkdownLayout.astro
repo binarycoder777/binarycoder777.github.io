@@ -1,5 +1,5 @@
 ---
-import SiderbarBlog from '../components/SiderbarBlog.astro'
+import SiderbarHome from '../components/SiderbarHome.astro'
 import Navbar from '../components/Navbar.astro';
 const { frontmatter } = Astro.props;
 ---
@@ -18,10 +18,6 @@ const { frontmatter } = Astro.props;
   -->
   <link rel="shortcut icon" href="/images/logo.ico" type="image/x-icon">
 
-  <!--
-    - custom css link
-  -->
-  <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
 
   <!--
     - google font link
@@ -44,11 +40,9 @@ const { frontmatter } = Astro.props;
       - #SIDEBAR
     -->
 
-    <aside class="sidebar" data-sidebar>
-      
-      <SiderbarBlog/>
-    </aside>
-
+    <div class="sidebar-info">
+      <SiderbarHome />
+    </div>
 
 
 
