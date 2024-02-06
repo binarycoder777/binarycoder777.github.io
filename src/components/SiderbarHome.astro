@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
+
 // 使用getStaticPaths读取/posts/目录下所有的Markdown文件
 const latesInfo = await Astro.glob("../pages/posts/**/*.md");
 
@@ -23,6 +25,7 @@ const sortedLatesInfo = latesInfo
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BinaryCoder777</title>
+    <ViewTransitions />
 
     <!--
     - favicon
@@ -42,89 +45,92 @@ const sortedLatesInfo = latesInfo
     <!--
       - #SIDEBAR
     -->
+  <div class="sider-container" data-container>
     <div class="sidebar-info">
-        <!-- 个人信息 -->
-        <figure class="avatar-box">
-            <img src="/my-logo.png" alt="Richard hanrick" width="80" id="rotateImage" />
-        </figure>
+      <!-- 个人信息 -->
+      <figure class="avatar-box">
+          <img src="/my-logo.png" alt="Richard hanrick" width="80" id="rotateImage" />
+      </figure>
 
-        <div class="info-content">
-            <h1 class="name" title="Richard hanrick">BinaryCoder777</h1>
+      <div class="info-content">
+          <h1 class="name" title="Richard hanrick">BinaryCoder777</h1>
 
-            <p class="title">Software Developer</p>
-        </div>
+          <p class="title">Software Developer</p>
+      </div>
 
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>更多...</span>
+      <button class="info_more-btn" data-sidebar-btn>
+        <span>更多...</span>
 
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-        <!-- 社交连接 -->
-        <ul class="social-list">
-            <li class="social-item">
-                <a href="https://github.com/BinaryCoder777" class="social-link">
-                    <div class="icon-container">
-                        <ion-icon name="logo-github"></ion-icon>
-                        <div class="icon-tooltip">Github</div>
-                    </div>
-                </a>
-            </li>
+        <ion-icon name="chevron-down"></ion-icon>
+      </button>
+      <!-- 社交连接 -->
+      <ul class="social-list">
+          <li class="social-item">
+              <a href="https://github.com/BinaryCoder777" class="social-link">
+                  <div class="icon-container">
+                      <ion-icon name="logo-github"></ion-icon>
+                      <div class="icon-tooltip">Github</div>
+                  </div>
+              </a>
+          </li>
 
-            <li class="social-item">
-                <a href="#" class="social-link">
-                    <div class="icon-container">
-                        <ion-icon name="mail-outline"></ion-icon>
-                        <div class="icon-tooltip">发送邮件</div>
-                    </div>
-                </a>
-            </li>
+          <li class="social-item">
+              <a href="#" class="social-link">
+                  <div class="icon-container">
+                      <ion-icon name="mail-outline"></ion-icon>
+                      <div class="icon-tooltip">发送邮件</div>
+                  </div>
+              </a>
+          </li>
 
-            <li class="social-item">
-                <a href="#" class="social-link">
-                    <div class="icon-container">
-                        <ion-icon name="logo-wechat"></ion-icon>
-                        <div class="icon-tooltip">
-                            <img src="/vx/vx.pic.jpg" alt="Image Tooltip" />
-                        </div>
-                    </div>
-                </a>
-            </li>
-        </ul>
-    </div>
+          <li class="social-item">
+              <a href="#" class="social-link">
+                  <div class="icon-container">
+                      <ion-icon name="logo-wechat"></ion-icon>
+                      <div class="icon-tooltip">
+                          <img src="/vx/vx.pic.jpg" alt="Image Tooltip" />
+                      </div>
+                  </div>
+              </a>
+          </li>
+      </ul>
+  </div>
 
-    <div class="separator"></div>
+  <div class="separator"></div>
 
-    <div class="sidebar-info_more">
+  <div class="sidebar-info_more">
 
-        <div class="latest-info">
-            <p class="Latest-News">最新动态:</p>
+      <div class="latest-info">
+          <p class="Latest-News">最新动态:</p>
 
-            <ul class="contacts-list">
-                { sortedLatesInfo.map((info) => (
-                <li class="contact-item">
-                    <div class="contact-info">
-                        <p class="contact-title">{info.frontmatter.date.slice(0,10)}</p>
+          <ul class="contacts-list">
+              { sortedLatesInfo.map((info) => (
+              <li class="contact-item">
+                  <div class="contact-info">
+                      <p class="contact-title">{info.frontmatter.date.slice(0,10)}</p>
 
-                        <a href={info.url} class="contact-link">
-                      {info.frontmatter.title}
-                    </a>
-                    </div>
-                </li>
-                )) }
-            </ul>
-        </div>
+                      <a href={info.url} class="contact-link">
+                    {info.frontmatter.title}
+                  </a>
+                  </div>
+              </li>
+              )) }
+          </ul>
+      </div>
 
-        <div class="separator"></div>
+      <div class="separator"></div>
 
-        <div class="footer-content">
-            <div class="copyright">
-                <a href="/privacy-policy" style="display: inline;">
-              &copy; 2024 BinaryCoder777.
-              保留所有权利。本站所有内容均受版权法保护，未经许可，禁止复制或转载。
-            </a>
-            </div>
-        </div>
-    </div>
+      <div class="footer-content">
+          <div class="copyright">
+              <a href="/privacy-policy" style="display: inline;">
+            &copy; 2024 BinaryCoder777.
+            保留所有权利。本站所有内容均受版权法保护，未经许可，禁止复制或转载。
+          </a>
+          </div>
+      </div>
+  </div>
+  </div>  
+</div>   
     <!--
     - ionicon link
   -->
@@ -138,16 +144,18 @@ const sortedLatesInfo = latesInfo
 
 <script>
 
-  // Add event listeners to toggle archive list visibility
-  const archiveMonths = document.querySelectorAll(".archive-month");
+  // element toggle function
+const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 
-  archiveMonths.forEach((month) => {
-    month.addEventListener("click", () => {
-      const archiveList = month.nextElementSibling as HTMLElement;
-      archiveList.style.display =
-        archiveList.style.display === "none" ? "block" : "none";
-    });
-  });
+
+  // sidebar variables
+const sidebar = document.querySelector("[data-container]");
+const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+
+// sidebar toggle functionality for mobile
+sidebarBtn.addEventListener("click", function () { 
+
+  elementToggleFunc(sidebar); });
 
 </script>
 
@@ -574,7 +582,7 @@ const sortedLatesInfo = latesInfo
     transition: var(--transition-2);
   }
 
-  .sidebar.active .sidebar-info_more {
+  .sider-container.active .sidebar-info_more {
     opacity: 1;
     visibility: visible;
   }

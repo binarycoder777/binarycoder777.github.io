@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 // 获取所有Markdown文件
 const posts = await Astro.glob("../pages/posts/**/*.md");
 console.log(posts)
@@ -46,6 +47,7 @@ const sortedArchive = sortedKeys.reduce((acc, key) => {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BinaryCoder777</title>
+  <ViewTransitions />
 
   <!--
     - favicon
@@ -65,6 +67,7 @@ const sortedArchive = sortedKeys.reduce((acc, key) => {
     <!--
       - #SIDEBAR
     -->
+    <div class="sider-container" data-container>
       <div class="sidebar-info">
         <!-- 个人信息 -->
         <figure class="avatar-box">
@@ -160,6 +163,7 @@ const sortedArchive = sortedKeys.reduce((acc, key) => {
           </div>
         </div>
       </div>
+    </div>
 
 
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -170,44 +174,26 @@ const sortedArchive = sortedKeys.reduce((acc, key) => {
 </html>
 
 
-<script>
-
+<script type="module">
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    const archiveMonths = document.querySelectorAll('.archive-month');
-
-    archiveMonths.forEach(function(month) {
-        month.addEventListener('click', function() {
-            const archiveList = this.nextElementSibling;
-            archiveList.classList.toggle('hidden');
-        });
-    });
-});
-
-
-  const image = document.getElementById("rotateImage");
-
-  image.addEventListener("mouseover", () => {
-    image.classList.add("rotate");
+      // 查询所有的archive-month元素
+      const archiveMonths = document.querySelectorAll('.archive-month');
+  
+      archiveMonths.forEach(function(month) {
+      month.addEventListener('click', function() {
+          const archiveList = this.nextElementSibling;
+          if (archiveList.classList.contains('hide')) {
+              archiveList.classList.remove('hide');
+              archiveList.classList.add('show');
+          } else {
+              archiveList.classList.remove('show');
+              archiveList.classList.add('hide');
+          }
+      });
   });
 
-  image.addEventListener("mouseout", () => {
-    image.classList.remove("rotate");
-  });
-
-  // element toggle function
-  const elementToggleFunc = function (elem) {
-    elem.classList.toggle("active");
-  };
-
-  // sidebar variables
-  const sidebar = document.querySelector("[data-sidebar]");
-  const sidebarBtn = document.querySelector("[data-sidebar-btn]");
-
-  // sidebar toggle functionality for mobile
-  sidebarBtn.addEventListener("click", function () {
-    elementToggleFunc(sidebar);
   });
 
   // testimonials variables
@@ -729,10 +715,11 @@ document.addEventListener('DOMContentLoaded', function() {
     transition: var(--transition-2);
   }
 
-  .sidebar.active .sidebar-info_more {
+  .sider-container.active .sidebar-info_more {
     opacity: 1;
     visibility: visible;
   }
+
 
   .contacts-list {
     display: grid;
@@ -1533,6 +1520,15 @@ document.addEventListener('DOMContentLoaded', function() {
     padding: 0;
     display: none;
   }
+
+  .show {
+    display: block !important;
+  }
+
+  .hide {
+      display: none !important;
+  }
+
 
   .archive-item {
     margin-bottom: 5px;

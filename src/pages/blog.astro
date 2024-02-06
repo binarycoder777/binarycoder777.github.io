@@ -1,10 +1,6 @@
 ---
-import HiddenSearch from "../components/HiddenSearch.astro";
 
 import SiderbarBlog from "../components/SiderbarBlog.astro";
-
-// import SiderbarHome from "../components/SiderbarHome.astro";
-
 
 import NavBar from "../components/Navbar.astro";
 
@@ -30,10 +26,6 @@ const initialLoadCount = 10;
   -->
     <link rel="shortcut icon" href="/images/logo.ico" type="image/x-icon" />
 
-    <!--
-    - custom css link
-  -->
-    <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
 
     <!--
     - google font link
@@ -150,18 +142,6 @@ const initialLoadCount = 10;
 
 
 <script>
-
-  document.addEventListener('DOMContentLoaded', function() {
-    const archiveMonths = document.querySelectorAll('.archive-month');
-
-    archiveMonths.forEach(function(month) {
-        month.addEventListener('click', function() {
-            const archiveList = this.nextElementSibling;
-            archiveList.classList.toggle('hidden');
-        });
-    });
-});
-
   document.getElementById('search-input').addEventListener('input', function() {
     const query = this.value.toLowerCase();
     fetch('/posts-metadata.json')
@@ -213,17 +193,6 @@ const initialLoadCount = 10;
 
 <script>
 
-  ("use strict");
-
-  const image = document.getElementById("rotateImage");
-
-  image.addEventListener("mouseover", () => {
-    image.classList.add("rotate");
-  });
-
-  image.addEventListener("mouseout", () => {
-    image.classList.remove("rotate");
-  });
 
   // element toggle function
   const elementToggleFunc = function (elem) {
@@ -238,6 +207,7 @@ const initialLoadCount = 10;
   sidebarBtn.addEventListener("click", function () {
     elementToggleFunc(sidebar);
   });
+
 
   // testimonials variables
   const testimonialsItem = document.querySelectorAll(
