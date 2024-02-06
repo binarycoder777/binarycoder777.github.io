@@ -172,35 +172,35 @@ const sortedArchive = sortedKeys.reduce((acc, key) => {
 
 </html>
 
-  
+
+<script type="module">
+  document.addEventListener('click', function(event) {
+    if (event.target.matches('.archive-month')) {     
+    // 查询所有的archive-month元素
+    const archiveMonths = document.querySelectorAll('.archive-month');
+    // 处理点击事件
+    archiveMonths.forEach(function(month) {
+        // 为每个archive-month添加点击事件监听
+        month.addEventListener('click', function() {
+          console.log("1111")
+            // 查找当前archive-month下一个兄弟元素，即对应的archive-list
+            const archiveList = this.nextElementSibling;
+
+            // 切换archive-list的显示状态
+            if (archiveList.style.display === 'none' || archiveList.style.display === '') {
+                archiveList.style.display = 'block'; // 显示列表
+            } else {
+                archiveList.style.display = 'none'; // 隐藏列表
+            }
+        });
+    });
+      }
+  });
+</script>
 
 <script>
 
-
-document.addEventListener('click', function(event) {
-  if (event.target.matches('.archive-month')) {     
-  // 查询所有的archive-month元素
-  const archiveMonths = document.querySelectorAll('.archive-month');
-   // 处理点击事件
-  archiveMonths.forEach(function(month) {
-      // 为每个archive-month添加点击事件监听
-      month.addEventListener('click', function() {
-        console.log("1111")
-          // 查找当前archive-month下一个兄弟元素，即对应的archive-list
-          const archiveList = this.nextElementSibling;
-
-          // 切换archive-list的显示状态
-          if (archiveList.style.display === 'none' || archiveList.style.display === '') {
-              archiveList.style.display = 'block'; // 显示列表
-          } else {
-              archiveList.style.display = 'none'; // 隐藏列表
-          }
-      });
-  });
-    }
-});
-
-  // ("use strict");
+  ("use strict");
 
   const image = document.getElementById("rotateImage");
 

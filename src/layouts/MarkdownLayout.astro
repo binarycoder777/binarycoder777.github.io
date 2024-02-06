@@ -46,7 +46,7 @@ const { frontmatter } = Astro.props;
 
     <aside class="sidebar" data-sidebar>
       
-      <SiderbarBlog/>
+      <SiderbarBlog client:load />
     </aside>
 
 
@@ -121,8 +121,6 @@ const { frontmatter } = Astro.props;
 
 
 <script>
-
- 
 
   ("use strict");
 
