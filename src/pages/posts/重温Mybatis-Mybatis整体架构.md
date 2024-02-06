@@ -4,12 +4,7 @@ image: "/images/blog-1.jpg"
 layout: "../../layouts/MarkdownLayout.astro"
 summary: "---Mybatis整体架构
 autho......"
----Mybatis整体架构
 author: John Doe
-tags:
-  - Mybatis
-categories:
-  - Mybatis
 date: "2022-09-18 20:10:00"
 ---
 
