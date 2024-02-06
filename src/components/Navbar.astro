@@ -1,5 +1,5 @@
 ---
-import HiddenSearch from '../components/HiddenSearch.astro'
+// import HiddenSearch from '../components/HiddenSearch.astro'
 import { ViewTransitions } from "astro:transitions";
 ---
 
@@ -97,15 +97,6 @@ import { ViewTransitions } from "astro:transitions";
 
       </nav>
 
-  <!-- </main> -->
-
-
-
-
-  <!--
-    - custom js link
-  -->
-  <!-- <script src="./assets/js/script.js"></script> -->
 
   <!--
     - ionicon link
@@ -119,9 +110,6 @@ import { ViewTransitions } from "astro:transitions";
 
 
 <script>
-
-
-
 
 'use strict';
 
@@ -142,12 +130,12 @@ const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 
 
 
-// sidebar variables
-const sidebar = document.querySelector("[data-sidebar]");
-const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+// // sidebar variables
+// const sidebar = document.querySelector("[data-sidebar]");
+// const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 
-// sidebar toggle functionality for mobile
-sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
+// // sidebar toggle functionality for mobile
+// sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
 
 
 
@@ -1411,43 +1399,7 @@ font-weight: var(--fw-300);
 #BLOG
 \*-----------------------------------*/
 
-    .archive {
-      list-style: none;
-      padding: 0;
-    }
-
-
-    .archive-month {
-      font-weight: bold;
-      margin-bottom: 10px;
-      cursor: pointer;
-      color:var(--white-1);
-    }
-
-    .archive-list {
-      margin: 0;
-      padding: 0;
-      display: none;
-    }
-
-    .archive-item {
-      margin-bottom: 5px;
-    }
-
-    .archive-item a {
-      color:var(--white-1);
-      display: block;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 200px; /* 设置最大宽度 */
-      text-decoration: none; /* 去掉链接的下划线 */
-      /* font-size: 15px; */
-    }
-
-
-  
-
+   
 
 
 .blog-posts { margin-bottom: 10px; }

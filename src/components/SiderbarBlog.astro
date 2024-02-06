@@ -127,7 +127,7 @@ const sortedArchive = sortedKeys.reduce((acc, key) => {
         <div class="article-archiving">
           <p class="Latest-News">文章归档:</p>
           <ul class="contacts-list">
-            <ul class="">
+            <ul>
               {Object.entries(sortedArchive).map(([yearMonth, posts]) => (
                 <>
                   <div class="archive-separator"></div>
@@ -172,37 +172,35 @@ const sortedArchive = sortedKeys.reduce((acc, key) => {
 
 </html>
 
-<script >
+<script>
 
-  // Add event listeners to toggle archive list visibility
-  const archiveMonths = document.querySelectorAll(".archive-month");
-  archiveMonths.forEach((month) => {
-    month.addEventListener("click", () => {
-      console.log(111)
-      const archiveList = month.nextElementSibling as HTMLElement;
-      archiveList.style.display =
-        archiveList.style.display === "none" ? "block" : "none";
-    });
-  });
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const archiveItems = document.querySelectorAll(".archive-item");
+document.addEventListener('click', function(event) {
+    if (event.target.matches('.archive-month')) {
+        // 处理点击事件
+              // 查询所有的archive-month元素
+      const archiveMonths = document.querySelectorAll('.archive-month');
+  
+  archiveMonths.forEach(function(month) {
+      // 为每个archive-month添加点击事件监听
+      month.addEventListener('click', function() {
+        console.log("1111")
+          // 查找当前archive-month下一个兄弟元素，即对应的archive-list
+          const archiveList = this.nextElementSibling;
 
-    archiveItems.forEach((item) => {
-      const month = item.querySelector(".archive-month");
-      const arrow = item.querySelector(".arrow") as HTMLElement;
-      const archiveList = item.querySelector(".archive-list");
-
-      month.addEventListener("click", function () {
-        item.classList.toggle("opened");
-        arrow.style.transform = item.classList.contains("opened")
-          ? "rotate(90deg)"
-          : "rotate(0deg)";
+          // 切换archive-list的显示状态
+          if (archiveList.style.display === 'none' || archiveList.style.display === '') {
+              archiveList.style.display = 'block'; // 显示列表
+          } else {
+              archiveList.style.display = 'none'; // 隐藏列表
+          }
       });
-    });
   });
+    }
+});
 
-</script>
+  </script>
+  
 
 <script>
 

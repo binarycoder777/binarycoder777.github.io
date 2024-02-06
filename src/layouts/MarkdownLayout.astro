@@ -45,7 +45,8 @@ const { frontmatter } = Astro.props;
     -->
 
     <aside class="sidebar" data-sidebar>
-      <SiderbarBlog/>
+      
+      <SiderbarBlog client:load />
     </aside>
 
 
@@ -118,6 +119,7 @@ const { frontmatter } = Astro.props;
 
 
 
+
 <script>
 
  
@@ -140,13 +142,13 @@ const { frontmatter } = Astro.props;
   };
 
   // sidebar variables
-  const sidebar = document.querySelector("[data-sidebar]");
-  const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+  // const sidebar = document.querySelector("[data-sidebar]");
+  // const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 
   // sidebar toggle functionality for mobile
-  sidebarBtn.addEventListener("click", function () {
-    elementToggleFunc(sidebar);
-  });
+  // sidebarBtn.addEventListener("click", function () {
+  //   elementToggleFunc(sidebar);
+  // });
 
   // testimonials variables
   const testimonialsItem = document.querySelectorAll(
@@ -237,42 +239,6 @@ const { frontmatter } = Astro.props;
     });
   }
 
-  // contact form variables
-  const form = document.querySelector("[data-form]");
-  const formInputs = document.querySelectorAll("[data-form-input]");
-  const formBtn = document.querySelector("[data-form-btn]");
-
-  // add event to all form input field
-  for (let i = 0; i < formInputs.length; i++) {
-    formInputs[i].addEventListener("input", function () {
-      // check form validation
-      if (form.checkValidity()) {
-        formBtn.removeAttribute("disabled");
-      } else {
-        formBtn.setAttribute("disabled", "");
-      }
-    });
-  }
-
-  // page navigation variables
-  const navigationLinks = document.querySelectorAll("[data-nav-link]");
-  const pages = document.querySelectorAll("[data-page]");
-
-  // add event to all nav link
-  for (let i = 0; i < navigationLinks.length; i++) {
-    navigationLinks[i].addEventListener("click", function () {
-      for (let i = 0; i < pages.length; i++) {
-        if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-          pages[i].classList.add("active");
-          navigationLinks[i].classList.add("active");
-          window.scrollTo(0, 0);
-        } else {
-          pages[i].classList.remove("active");
-          navigationLinks[i].classList.remove("active");
-        }
-      }
-    });
-  }
 </script>
      
 
@@ -1435,44 +1401,6 @@ font-weight: var(--fw-300);
 /*-----------------------------------*\
 #BLOG
 \*-----------------------------------*/
-
-    .archive {
-      list-style: none;
-      padding: 0;
-    }
-
-
-    .archive-month {
-      font-weight: bold;
-      margin-bottom: 10px;
-      cursor: pointer;
-      color:var(--white-1);
-    }
-
-    /* .archive-list {
-      margin: 0;
-      padding: 0;
-      display: none;
-    } */
-
-    .archive-item {
-      margin-bottom: 5px;
-    }
-
-    .archive-item a {
-      color:var(--white-1);
-      display: block;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 200px; /* 设置最大宽度 */
-      text-decoration: none; /* 去掉链接的下划线 */
-      /* font-size: 15px; */
-    }
-
-
-  
-
 
 
 .blog-posts { margin-bottom: 10px; }
