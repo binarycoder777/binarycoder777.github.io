@@ -79,7 +79,9 @@ import { ViewTransitions } from 'astro:transitions';
             <h2 class="h2 article-title">Footprint:</h2>
           </header>
 
-          <div id="markdown-container"></div>
+          <div id="markdown-container">
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=BinaryCoder777&layout=compact&theme=transparent&&langs_count=20&hide_border=true&card_width=500&title_color=fff"></img>
+          </div>
 
           <section class="timeline">
             <div class="title-wrapper">
@@ -140,16 +142,17 @@ import { ViewTransitions } from 'astro:transitions';
 
 
 <script type="text/markdown" id="markdown">
-  ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=BinaryCoder777&layout=compact&theme=transparent&&langs_count=20&hide_border=true&card_width=500&title_color=fff)
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=BinaryCoder777&layout=compact&theme=transparent&&langs_count=20&hide_border=true&card_width=500&title_color=fff"></img>
+  // ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=BinaryCoder777&layout=compact&theme=transparent&&langs_count=20&hide_border=true&card_width=500&title_color=fff)
 </script>
   
-  <script>
+  <!-- <script>
     document.addEventListener('DOMContentLoaded', (event) => {
       const markdownContent = document.getElementById('markdown').innerText;
       const htmlContent = marked.parse(markdownContent);
       document.getElementById('markdown-container').innerHTML = htmlContent;
     });
-  </script>
+  </script> -->
 
 
 <script>
