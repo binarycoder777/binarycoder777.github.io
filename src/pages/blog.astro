@@ -1,9 +1,9 @@
 ---
 import HiddenSearch from "../components/HiddenSearch.astro";
 
-// import SiderbarBlog from "../components/SiderbarBlog.astro";
+import SiderbarBlog from "../components/SiderbarBlog.astro";
 
-import SiderbarHome from "../components/SiderbarHome.astro";
+// import SiderbarHome from "../components/SiderbarHome.astro";
 
 
 import NavBar from "../components/Navbar.astro";
@@ -63,7 +63,7 @@ const initialLoadCount = 10;
     -->
 
     <aside class="sidebar" data-sidebar>
-      <SiderbarHome />
+      <SiderbarBlog />
     </aside>
 
 
@@ -200,26 +200,6 @@ const initialLoadCount = 10;
 </script>
 
 <script>
-  function toggleVisibility() {
-  // 获取元素
-  var latestNewsDiv = document.querySelector(".latest-info");
-  var archiveDiv = document.querySelector(".article-archiving");
-
-  // 切换显示状态
-  if (latestNewsDiv.style.display === "none") {
-    console.log("1")
-    latestNewsDiv.style.display = "block";
-    archiveDiv.style.display = "none";
-    localStorage.setItem('displayState', 'latest');
-  } else {
-    console.log("0")
-
-    latestNewsDiv.style.display = "none";
-    archiveDiv.style.display = "block";
-    localStorage.setItem('displayState', 'archive');
-  }
-}
-
 
   ("use strict");
 

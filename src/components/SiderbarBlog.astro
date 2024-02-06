@@ -1,22 +1,41 @@
 ---
 // 获取所有Markdown文件
 const posts = await Astro.glob("../pages/posts/**/*.md");
+console.log(posts)
 
 // 归档文章
 const archive = posts.reduce((acc, post) => {
-  // 获取年月作为归档的键
-  const yearMonth = post.frontmatter.date.slice(0,7); // "YYYY-MM"
-  
-  // 如果该年月还未创建数组，则初始化
-  if (!acc[yearMonth]) {
-    acc[yearMonth] = [];
+  // 确保frontmatter和date存在
+  if (post.frontmatter && post.frontmatter.date) {
+    // 获取年月作为归档的键
+    const yearMonth = post.frontmatter.date.slice(0,7); // "YYYY-MM"
+    
+    // 如果该年月还未创建数组，则初始化
+    if (!acc[yearMonth]) {
+      acc[yearMonth] = [];
+    }
+    
+    // 将文章添加到相应的年月下
+    acc[yearMonth].push(post);
+  } else {
+    console.log(`Post missing date or frontmatter: ${post.filePath}`);
   }
-  
-  // 将文章添加到相应的年月下
-  acc[yearMonth].push(post);
   
   return acc;
 }, {});
+
+// 将archive对象的键（年月）提取出来并排序
+const sortedKeys = Object.keys(archive).sort((a, b) => {
+  // 直接比较字符串，因为它们是以"YYYY-MM"的格式，可以直接排序
+  return a > b ? -1 : (a < b ? 1 : 0);
+});
+
+// 现在sortedKeys是按年月排序的键数组，你可以使用它来按顺序访问archive中的文章
+const sortedArchive = sortedKeys.reduce((acc, key) => {
+  acc[key] = archive[key];
+  return acc;
+}, {});
+
 ---
 
 <!DOCTYPE html>
@@ -107,22 +126,26 @@ const archive = posts.reduce((acc, post) => {
 
         <div class="article-archiving">
           <p class="Latest-News">文章归档:</p>
-
           <ul class="contacts-list">
-            <ul class="archive">
-              {Object.entries(archive).map(([yearMonth, posts]) => (
-                <li key={yearMonth}>
-                <span class="archive-month">{yearMonth}</span>
-                <ul class="archive-list">
-                  {posts.map(post => (
-                            <li class="archive-item" key={post.url}>
-                              <a href={post.url}>{post.frontmatter.title}</a>
-                            </li>
-                        ))}
-                </ul>
-              </li>
-            ))}
+            <ul class="">
+              {Object.entries(sortedArchive).map(([yearMonth, posts]) => (
+                <>
+                  <div class="archive-separator"></div>
+                  <li key={yearMonth}>
+                    <span class="archive-month">{yearMonth}</span>
+                    <ul class="archive-list">
+                      {posts.map((post, index) => (
+                                <li class="archive-item" key={post.url}>
+                                  {/* 在这里添加序号，索引加1使其从1开始 */}
+                                  <a href={post.url}>•{post.frontmatter.title}</a>
+                                </li>
+                            ))}
+                    </ul>
+                  </li>
+                </>
+              ))}
             </ul>
+            
           </ul>
         </div>
 
@@ -149,14 +172,13 @@ const archive = posts.reduce((acc, post) => {
 
 </html>
 
-
-<script>
+<script >
 
   // Add event listeners to toggle archive list visibility
   const archiveMonths = document.querySelectorAll(".archive-month");
-
   archiveMonths.forEach((month) => {
     month.addEventListener("click", () => {
+      console.log(111)
       const archiveList = month.nextElementSibling as HTMLElement;
       archiveList.style.display =
         archiveList.style.display === "none" ? "block" : "none";
@@ -179,6 +201,10 @@ const archive = posts.reduce((acc, post) => {
       });
     });
   });
+
+</script>
+
+<script>
 
   // ("use strict");
 
@@ -300,7 +326,6 @@ const archive = posts.reduce((acc, post) => {
 
 
 
-
      
     
 <style>
@@ -315,6 +340,7 @@ const archive = posts.reduce((acc, post) => {
   /*-----------------------------------*\
   #CUSTOM PROPERTY
 \*-----------------------------------*/
+
 
   :root {
     /**
@@ -1508,7 +1534,7 @@ const archive = posts.reduce((acc, post) => {
 #BLOG
 \*-----------------------------------*/
 
-  .archive {
+   .archive {
     list-style: none;
     padding: 0;
   }
@@ -1540,6 +1566,13 @@ const archive = posts.reduce((acc, post) => {
     text-decoration: none; /* 去掉链接的下划线 */
     /* font-size: 15px; */
   }
+
+  .archive-separator {
+    width: 100%;
+    height: 1px;
+    background: var(--jet);
+    margin: 16px 0;
+  } */
 
   .blog-posts {
     margin-bottom: 10px;

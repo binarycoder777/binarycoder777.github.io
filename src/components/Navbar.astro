@@ -120,31 +120,6 @@ import { ViewTransitions } from "astro:transitions";
 
 <script>
 
-      // Add event listeners to toggle archive list visibility
-      const archiveMonths = document.querySelectorAll('.archive-month');
-
-archiveMonths.forEach(month => {
-  month.addEventListener('click', () => {
-    const archiveList = month.nextElementSibling;
-    archiveList.style.display = archiveList.style.display === 'none' ? 'block' : 'none';
-  });
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-  const archiveItems = document.querySelectorAll('.archive-item');
-
-  archiveItems.forEach(item => {
-    const month = item.querySelector('.archive-month');
-    const arrow = item.querySelector('.arrow');
-    const archiveList = item.querySelector('.archive-list');
-
-    month.addEventListener('click', function () {
-      item.classList.toggle('opened');
-      arrow.style.transform = item.classList.contains('opened') ? 'rotate(90deg)' : 'rotate(0deg)';
-    });
-  });
-});
-
 
 
 

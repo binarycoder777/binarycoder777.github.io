@@ -1,5 +1,5 @@
 ---
-import SiderbarBlog from '../components/SiderbarHome.astro'
+import SiderbarBlog from '../components/SiderbarBlog.astro'
 import Navbar from '../components/Navbar.astro';
 const { frontmatter } = Astro.props;
 ---
@@ -70,10 +70,10 @@ const { frontmatter } = Astro.props;
 
 
       <!--
-        - #ABOUT
+        - #Blog content
       -->
 
-      <article class="about active" >
+      <article class="blog active" >
 
         <header>
             <h2 class="h2 article-title">记录</h2>         
@@ -85,7 +85,9 @@ const { frontmatter } = Astro.props;
        </div>
 
         <section class="about-text">
-            <slot />
+          <div class="blog-content">
+            <slot />  
+          </div>  
         </section>
       </article>
     </div>
@@ -116,50 +118,9 @@ const { frontmatter } = Astro.props;
 
 
 
-
 <script>
-  function toggleVisibility() {
-    // 获取最新动态和文章归档的div元素
-    var latestNewsDiv = document.querySelector(".latest-news");
-    var archiveDiv = document.querySelector(".archive");
 
-    // 判断最新动态是否可见，然后切换状态
-    if (latestNewsDiv.style.display === "none") {
-      latestNewsDiv.style.display = "block";
-      archiveDiv.style.display = "none";
-    } else {
-      latestNewsDiv.style.display = "none";
-      archiveDiv.style.display = "block";
-    }
-  }
-
-  // Add event listeners to toggle archive list visibility
-  const archiveMonths = document.querySelectorAll(".archive-month");
-
-  archiveMonths.forEach((month) => {
-    month.addEventListener("click", () => {
-      const archiveList = month.nextElementSibling;
-      archiveList.style.display =
-        archiveList.style.display === "none" ? "block" : "none";
-    });
-  });
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const archiveItems = document.querySelectorAll(".archive-item");
-
-    archiveItems.forEach((item) => {
-      const month = item.querySelector(".archive-month");
-      const arrow = item.querySelector(".arrow");
-      const archiveList = item.querySelector(".archive-list");
-
-      month.addEventListener("click", function () {
-        item.classList.toggle("opened");
-        arrow.style.transform = item.classList.contains("opened")
-          ? "rotate(90deg)"
-          : "rotate(0deg)";
-      });
-    });
-  });
+ 
 
   ("use strict");
 
@@ -314,7 +275,16 @@ const { frontmatter } = Astro.props;
   }
 </script>
      
-    
+
+<style is:global>
+  
+.blog-content img {
+  width: 100%;
+  height: auto;
+}
+
+</style>
+
 <style>
 /*-----------------------------------*\
   #style.css
@@ -921,6 +891,7 @@ line-height: 1.6;
 
 
 
+
 /**
 * #service 
 */
@@ -1478,11 +1449,11 @@ font-weight: var(--fw-300);
       color:var(--white-1);
     }
 
-    .archive-list {
+    /* .archive-list {
       margin: 0;
       padding: 0;
       display: none;
-    }
+    } */
 
     .archive-item {
       margin-bottom: 5px;
