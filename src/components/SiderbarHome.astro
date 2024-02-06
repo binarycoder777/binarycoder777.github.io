@@ -45,7 +45,7 @@ const sortedLatesInfo = latesInfo
     <!--
       - #SIDEBAR
     -->
-  <div class="sider-container" data-container>
+  <div class="sider-container">
     <div class="sidebar-info">
       <!-- 个人信息 -->
       <figure class="avatar-box">
@@ -142,23 +142,22 @@ const sortedLatesInfo = latesInfo
 </html>
 
 
-<script>
-
-  // element toggle function
-const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
-
-
-  // sidebar variables
-const sidebar = document.querySelector("[data-container]");
-const sidebarBtn = document.querySelector("[data-sidebar-btn]");
-
-// sidebar toggle functionality for mobile
-sidebarBtn.addEventListener("click", function () { 
-
-  elementToggleFunc(sidebar); });
-
-</script>
-
+<script is:inline>
+    // element toggle function
+  const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
+  
+  
+    // sidebar variables
+    const sidebar = document.querySelector("[data-sidebar]");
+  const siderContainer = document.querySelector(".sider-container");
+  const sidebarBtn = document.querySelector(".info_more-btn");
+  // sidebar toggle functionality for mobile
+  sidebarBtn.addEventListener("click", function () { 
+    elementToggleFunc(sidebar); 
+    elementToggleFunc(siderContainer); 
+  });
+  
+  </script>
 
 
 

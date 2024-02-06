@@ -174,8 +174,23 @@ const sortedArchive = sortedKeys.reduce((acc, key) => {
 </html>
 
 
-<script type="module">
+<script is:inline>
 
+  // element toggle function
+  const elementToggleFunc = function (elem) {
+    elem.classList.toggle("active");
+  };
+
+  // sidebar variables
+  const sidebar = document.querySelector("[data-sidebar]");
+  const siderContainer = document.querySelector(".sider-container");
+  const sidebarBtn = document.querySelector(".info_more-btn");
+  // sidebar toggle functionality for mobile
+  sidebarBtn.addEventListener("click", function () {
+    elementToggleFunc(sidebar);
+    elementToggleFunc(siderContainer); 
+
+  });
 
 document.addEventListener('DOMContentLoaded', function() {
       // 查询所有的archive-month元素

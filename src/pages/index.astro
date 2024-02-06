@@ -475,30 +475,6 @@ import { ViewTransitions } from "astro:transitions";
 
   ("use strict");
 
-  const image = document.getElementById("rotateImage");
-
-  image.addEventListener("mouseover", () => {
-    image.classList.add("rotate");
-  });
-
-  image.addEventListener("mouseout", () => {
-    image.classList.remove("rotate");
-  });
-
-  // element toggle function
-  const elementToggleFunc = function (elem) {
-    elem.classList.toggle("active");
-  };
-
-  // sidebar variables
-  const sidebar = document.querySelector("[data-sidebar]");
-  const sidebarBtn = document.querySelector("[data-sidebar-btn]");
-
-  // sidebar toggle functionality for mobile
-  sidebarBtn.addEventListener("click", function () {
-    elementToggleFunc(sidebar);
-  });
-
   // testimonials variables
   const testimonialsItem = document.querySelectorAll(
     "[data-testimonials-item]",
@@ -610,6 +586,11 @@ import { ViewTransitions } from "astro:transitions";
 
 
 <style>
+
+.sider-container.active .sidebar-info_more {
+    opacity: 1;
+    visibility: visible;
+  }
   /*-----------------------------------*\
   #style.css
 \*-----------------------------------*/
@@ -1024,6 +1005,11 @@ import { ViewTransitions } from "astro:transitions";
   }
 
   .sidebar.active .sidebar-info_more {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .sider-container.active .sidebar-info_more {
     opacity: 1;
     visibility: visible;
   }
