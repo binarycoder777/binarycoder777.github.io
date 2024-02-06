@@ -150,6 +150,18 @@ const initialLoadCount = 10;
 
 
 <script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const archiveMonths = document.querySelectorAll('.archive-month');
+
+    archiveMonths.forEach(function(month) {
+        month.addEventListener('click', function() {
+            const archiveList = this.nextElementSibling;
+            archiveList.classList.toggle('hidden');
+        });
+    });
+});
+
   document.getElementById('search-input').addEventListener('input', function() {
     const query = this.value.toLowerCase();
     fetch('/posts-metadata.json')
